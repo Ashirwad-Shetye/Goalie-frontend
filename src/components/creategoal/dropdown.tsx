@@ -49,7 +49,7 @@ function DropdownMenu(){
             About us</li>
           <li className='rounded-lg duration-200 hover:bg-white hover:bg-opacity-20 py-2'>
           {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
-            Sign up</li>
+            Log out</li>
         </DropdownItem>
     </div>
   )

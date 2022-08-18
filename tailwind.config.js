@@ -17,5 +17,8 @@ module.exports = {
     },
     fontFamily: {'lato': ['Lato', 'sans-serif']},
   },
-  plugins: [require('flowbite/plugin')],
+  plugins: [require('flowbite/plugin'), require('tailwind-scrollbar')],
+  variants: {
+    scrollbar: ['rounded']
+  },
 }
