@@ -1,11 +1,12 @@
 import React from 'react';
-import Home from './components/homepage/home';
-import Dashboard from './components/dashboard/dashboard';
-import Feed from './components/feed/feed';
-import Signup from './components/signup/signup';
-import Login from './components/login/login';
-import CreateGoal from './components/creategoal/creategoal';
+import Home from './pages/home';
+import Dashboard from './pages/dashboard';
+import Feed from './pages/feed';
+import Signup from './pages/signup';
+import Login from './pages/login';
+import CreateGoal from './pages/creategoal';
 import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (

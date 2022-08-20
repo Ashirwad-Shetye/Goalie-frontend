@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from './header'
+import Header from '../components/login/header'
 import { BiArrowBack } from 'react-icons/bi'
 
 function Login() {
@@ -29,10 +29,10 @@ function Login() {
                 <div className='container mx-auto shrink-0 py-4 md:mt-0 w-full md:py-6 flex-col flex'>
                     
                     <label className='text-xl text-slate-600 py-2'>Email</label>
-                    <input type="text" className='w-full mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
+                    <input type="text" placeholder='Email address' className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
                     
                     <label className='text-xl text-slate-600 py-2'>Password</label>
-                    <input type="text" className='w-full mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
+                    <input type="text" placeholder='Password' className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
                 </div>
             </form>
             <button

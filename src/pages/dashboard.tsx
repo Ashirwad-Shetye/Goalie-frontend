@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from './header'
-import Calender from './calender'
-import GoalStatus from './goalStatus'
-import TimelineCard from './timeline'
+import Header from '../components/dashboard/header'
+import Calender from '../components/dashboard/calender'
+import GoalStatus from '../components/dashboard/goalStatus'
+import TimelineCard from '../components/dashboard/timeline'
 
 function Dashboard() {
   return (

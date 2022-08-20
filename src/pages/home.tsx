@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Header from '../components/homepage/header'
 import quote from '../../styles/assets/svg/quote.svg'
 
 function Home() {
