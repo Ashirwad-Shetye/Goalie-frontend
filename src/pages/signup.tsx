@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/signup/header'
 import { BiArrowBack } from 'react-icons/bi'
+import { register, reset } from '../features/auth/authSlice' 
+import { AppDispatch, RootState } from '../store/store'
 
 
 function Signup() {
@@ -14,9 +18,28 @@ function Signup() {
         password2: '',
     })
 
-    const { name, email, password, password2 } = formData
+    const { name, email, password} = formData
 
     const navigate = useNavigate()
+
+    const dispatch = useDispatch<AppDispatch>()
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector(
+        (state : RootState) => state.auth
+    )
+
+    useEffect(() => {
+        if(isError){
+            toast.error(message)
+        } 
+
+        if(isSuccess || user){
+            navigate('/dashboard')
+        }
+
+        dispatch(reset())
+
+    }, [user, isLoading, isError, isSuccess, message, dispatch, navigate])
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         setFormData((prevState) => ({
@@ -25,8 +48,20 @@ function Signup() {
         }))
     }
 
-    const onSubmit = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    const onSubmit = (e: React.SyntheticEvent) =>{
         e.preventDefault()
+
+        if(password.length === 0){
+            toast.error('Password is required')
+        } else {
+            const userData = {
+            name,
+            email,
+            password,
+            }
+
+            dispatch(register(userData))
+        }
     }
 
   return (
@@ -34,7 +69,6 @@ function Signup() {
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            onSubmit={onSubmit}
             className='container h-2/3 w-2/3 
             my-40 bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
@@ -44,7 +78,9 @@ function Signup() {
                         cursor-pointer text-orange-600 hover:text-slate-500'>
                 <BiArrowBack />
             </div>
-            <form className='container w-2/3 md:w-96 mx-auto text-left'>
+            <form
+                onSubmit={onSubmit} 
+                className='container w-2/3 md:w-96 mx-auto'>
                 <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 '>Signup
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
@@ -62,7 +98,8 @@ function Signup() {
                         name='name' 
                         value={name}
                         onChange={onChange}
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg'
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
+                            border-orange-400 rounded-lg text-center'
                     /> 
                     
                     {/* Email */}
@@ -74,7 +111,8 @@ function Signup() {
                         name='email' 
                         value={email}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' 
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
+                            border-orange-400 rounded-lg' 
                     />
                     
                     {/* Password */}
@@ -86,16 +124,17 @@ function Signup() {
                         name='password' 
                         value={password}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg'
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 
+                            border-orange-400 rounded-lg'
                     />
                 </div>
+                <button
+                    type='submit'
+                    className='text-xl my-4 font-lato bg-orange-500 
+                        text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
+                        hover:text-orange-500 border-orange-500 duration-200 border-2 hover:shadow-none'
+                >Submit</button>
             </form>
-            <button
-                type='submit'
-                className='text-xl my-4 font-lato bg-orange-500 
-                    text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
-                    hover:text-orange-500 border-orange-500 duration-200 border-2 hover:shadow-none'
-            >Submit</button>
             <div>
                 <p className='md:text-xl text-slate-600 md:py-2'>Already have an account?
                     <span 
