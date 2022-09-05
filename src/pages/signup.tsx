@@ -60,7 +60,7 @@ function Signup() {
             password,
             }
 
-            dispatch(register(userData))
+            // dispatch(register(userData))
         }
     }
 

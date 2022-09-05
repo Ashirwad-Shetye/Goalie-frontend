@@ -15,9 +15,12 @@ module.exports = {
         'goalBtn': '0px 1px 10px 1px rgba(255,160,0,0.5)',
       },
     },
-    fontFamily: {'lato': ['Lato', 'sans-serif']},
+    fontFamily: {
+      'lato': ['Lato', 'sans-serif'], 
+      'poppins': ['Poppins', 'sans-serif'],
+    },
   },
-  plugins: [require('flowbite/plugin'), require('tailwind-scrollbar')],
+  plugins: [require('flowbite/plugin'), require('tailwind-scrollbar'), require('tailwind-scrollbar-hide')],
   variants: {
     scrollbar: ['rounded']
   },

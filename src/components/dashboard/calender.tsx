@@ -31,10 +31,11 @@ const Calendar: React.FC<CalendarProps> = () => {
   }, [activeMonth]);
 
   return (
-    <div className="mt-20 shadow-xl rounded-2xl p-2 bg-white mx-2">
-      <div className="w-full rounded">
-        <div className="flex items-center justify-between mb-6">
-          <div className="text-left font-bold text-xl text-black dark:text-white">
+    <div className="mt-5 p-2 mx-2">
+      {/* <h1 className="text-3xl font-lato font-bold text-orange-500">Calender</h1> */}
+      <div className="w-full bg-white shadow-xl rounded-2xl">
+        <div className="flex items-center justify-between my-4">
+          <div className="text-left ml-8 font-bold text-xl text-slate-700 dark:text-white">
             {`${activeMonthString} ${activeYear}`}
           </div>
           <div className="flex space-x-4">
@@ -72,13 +73,13 @@ const Calendar: React.FC<CalendarProps> = () => {
           <table className="w-full dark:text-white">
             <thead>
               <tr>
-                <th className="py-4 px-5 ">S</th>
-                <th className="py-4 px-5 ">M</th>
-                <th className="py-4 px-5 ">T</th>
-                <th className="py-4 px-5 ">W</th>
-                <th className="py-4 px-5 ">T</th>
-                <th className="py-4 px-5 ">F</th>
-                <th className="py-4 px-5 ">S</th>
+                <th className="py-2 px-5 ">S</th>
+                <th className="py-2 px-5 ">M</th>
+                <th className="py-2 px-5 ">T</th>
+                <th className="py-2 px-5 ">W</th>
+                <th className="py-2 px-5 ">T</th>
+                <th className="py-2 px-5 ">F</th>
+                <th className="py-2 px-5 ">S</th>
               </tr>
             </thead>
             <tbody>
@@ -194,7 +195,7 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
       content.push(<td></td>);
     }
     content.push(
-      <td className="relative py-5 px-2 md:px-3  hover:text-blue-500 text-center text-gray-800">
+      <td className="relative py-4 px-3 md:px-  hover:text-blue-500 text-center text-gray-800">
         1
       </td>
     );
@@ -205,13 +206,13 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
           {activeDay === i + 1 &&
           new Date().getMonth() === currentMonth &&
           new Date().getFullYear() === currentYear ? (
-            <td className="relative py-5 px-2 md:px-3  hover:text-orange-500 text-center text-gray-800">
+            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
               <span className="p-1 text-white rounded-full bg-orange-500">
                 {i + 1}
               </span>
             </td>
           ) : (
-            <td className="relative py-5 px-2 md:px-3  hover:text-orange-500 text-center text-gray-800">
+            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
               {i + 1}
             </td>
           )}
@@ -229,13 +230,13 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
           {activeDay === i + (7 * row - firstDay) &&
           new Date().getMonth() === currentMonth &&
           new Date().getFullYear() === currentYear ? (
-            <td className="relative py-5 px-2  hover:text-blue-500 text-center text-gray-800">
+            <td className="relative py-4 px-4  hover:text-blue-500 text-center text-gray-800">
               <span className="p-2 text-white rounded-full bg-orange-500">
                 {i + (7 * row - firstDay)}
               </span>
             </td>
           ) : (
-            <td className="relative py-5 px-2 md:px-3  hover:text-orange-500 text-center text-gray-800">
+            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
               {i + (7 * row - firstDay)}
             </td>
           )}

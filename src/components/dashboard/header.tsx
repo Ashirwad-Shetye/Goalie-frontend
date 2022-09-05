@@ -19,9 +19,15 @@ function Header() {
             <div className='justify-center'>
                 <ul className='hidden mr-48 md:flex items-center mx-8 space-x-8 lg:space-x-12 text-xl 
                     font-lato font-semibold my-16'>
-                    <li className='hover:text-orange-600 cursor-pointer'>Dashboard</li>
-                    <li className='hover:text-orange-600 cursor-pointer'>Feed</li>
-                    <li className='hover:text-orange-600 cursor-pointer'>About us</li>
+                    <li 
+                        onClick={() => navigate('/feed')}
+                        className='hover:text-orange-600 cursor-pointer'>Feed</li>
+                    <li 
+                        onClick={() => navigate('/aboutus')}
+                        className='hover:text-orange-600 cursor-pointer'>About us</li>
+                    <li 
+                        onClick={() => navigate('/')}
+                        className='hover:text-orange-600 cursor-pointer'>Log out</li>
                 </ul>    
             </div>
             <Dropdown />
