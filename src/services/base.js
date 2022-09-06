@@ -85,11 +85,11 @@ const handleErrors = (store = null, error) => {
 }
 
 export const setupBasicInterceptor = () => {
-    basicInstance.interceptors.response.use(
+    instance.interceptors.response.use(
         (response) => Promise.resolve(response),
         (error) => handleErrors(error)
     )
-    basicInstance.interceptors.request.use(
+    instance.interceptors.request.use(
         (config) => setAuthHeaders(config),
         (error) => Promise.reject(error)
     )
