@@ -1,4 +1,4 @@
-import { userLogin, userRegister } from './apiCalls'
+import { userLogin, userRegister, userSetGoal, getUserGoalData, getMyInfo } from './apiCalls'
 import { setAuthHeadersAfterLogin } from './base'
 import { saveAuthDataToDevice } from './storage'
 export const login = (params) => {
@@ -20,4 +20,22 @@ export const register = (params) => {
     .catch((error) => {
         console.log(error)
     })
+}
+
+export const setGoal = (params) => {
+    userSetGoal(params)
+    .then((response) => {
+        console.log(response)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
+export const getGoalData = () => {
+    return getUserGoalData()
+}
+
+export const getUserInfo = () => {
+    return getMyInfo()
 }
