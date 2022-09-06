@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/login/header'
 import { BiArrowBack } from 'react-icons/bi'
+import { login } from './../services/serverCalls'
 
 function Login() {
     const [formData, setFormData] = useState({
@@ -23,8 +24,9 @@ function Login() {
         }))
     }
 
-    const onSubmit = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
+        login({email,password})
     }
 
   return (
@@ -32,7 +34,7 @@ function Login() {
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            onSubmit={onSubmit}
+            
             className='container h-2/3 w-2/3 
             my-40 bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
@@ -41,7 +43,7 @@ function Login() {
             className='absolute text-2xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl cursor-pointer duration-200 text-orange-600 hover:text-slate-500'>
                 <BiArrowBack />
             </div>
-            <form className='container w-2/3 md:w-96 mx-auto text-left'>
+            <form   onSubmit = {(e)=>onSubmit(e)} className='container w-2/3 md:w-96 mx-auto text-left'>
                 <div className='text-4xl py-2 md:py-4 mt-10 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 '>Login
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
@@ -68,13 +70,14 @@ function Login() {
                         placeholder='Password' 
                         className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
                 </div>
-            </form>
-            <button
+                <button
                 type='submit'
                 className='text-xl my-4 font-lato bg-orange-500 
                     text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
                     hover:text-orange-500 duration-200 border-orange-500 border-2 hover:shadow-none'
             >Submit</button>
+            </form>
+
             <div>
                 <p className='py-2 md:text-xl text-slate-600 md:py-6'>Need a new account?
                     <span 

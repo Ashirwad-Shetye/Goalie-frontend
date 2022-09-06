@@ -9,9 +9,15 @@ import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { setupBasicInterceptor } from './services/base';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+setupBasicInterceptor();
+
+
 root.render(
   <React.StrictMode>
     <Provider store={Store}>
