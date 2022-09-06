@@ -5,8 +5,9 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/signup/header'
 import { BiArrowBack } from 'react-icons/bi'
-import { register, reset } from '../features/auth/authSlice' 
+import {  reset } from '../features/auth/authSlice' 
 import { AppDispatch, RootState } from '../store/store'
+import { register } from './../services/serverCalls'
 
 
 function Signup() {
@@ -59,6 +60,7 @@ function Signup() {
             email,
             password,
             }
+            register(userData)
 
             // dispatch(register(userData))
         }
