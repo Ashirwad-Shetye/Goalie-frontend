@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { Avatar } from 'flowbite-react'
 import avatar1 from '../../styles/assets/avatar/avatar1.jpeg'
 
 function UserData() {
-  const [userData, setUserData] = useState(null)
   return (
     <div className="w-full h-[15px] lg:h-[175px]">
       <div className="flex lg:pt-8 ml-5 lg:ml-10 space-x-6">
