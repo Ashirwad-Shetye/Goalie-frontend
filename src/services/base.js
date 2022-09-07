@@ -11,6 +11,7 @@ export const setAuthHeaders = (config) => {
         if(key.toLowerCase() === 'authorization'.toLowerCase()){
             config.headers.common[key] =  `Bearer ${getItemFromStorage('token')}`;
         }
+
         else{
             if (getItemFromStorage(key)){
                 config.headers.common[key] = getItemFromStorage(key);
@@ -47,8 +48,9 @@ const instance = axios.create();
 export const basicInstance = axios.create();
 
 const handleErrors = (store = null, error) => {
+    console.log(error)
     if(process.env.NODE_ENV === 'development'){
-        console.log("Error Logging :: ", error.message, JSON.stringify(error))
+        // console.log("Error Logging :: ", error.message, JSON.stringify(error))
     }
     if(error.message){
         if(error.message === "Network Error"){
@@ -87,7 +89,7 @@ const handleErrors = (store = null, error) => {
 export const setupBasicInterceptor = () => {
     instance.interceptors.response.use(
         (response) => Promise.resolve(response),
-        (error) => handleErrors(error)
+        (error) => Promise.reject(error)
     )
     instance.interceptors.request.use(
         (config) => setAuthHeaders(config),
