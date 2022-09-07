@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import Header from '../components/login/header'
 import { BiArrowBack } from 'react-icons/bi'
 import { login } from './../services/serverCalls'
+import { clearItemFromStorage } from './../services/storage'
 
-function Login() {
+function Login(props:any) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -13,6 +14,9 @@ function Login() {
         password2: '',
     })
 
+    useEffect(()=>{
+        clearItemFromStorage('token')
+    })
     const { email, password } = formData
 
     const navigate = useNavigate()
@@ -26,7 +30,7 @@ function Login() {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
-        login({email,password})
+        login({email,password}, navigate, props.setIsLoggedIn)
     }
 
   return (
