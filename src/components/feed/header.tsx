@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../styles/assets/logo/logo.png';
 import { useNavigate } from 'react-router-dom';
 import MainAvatar from '../../common/userAvatar';
+import { clearItemFromStorage } from '../../services/storage';
 import Dropdown from './dropdown';
 
 function Header() {
@@ -26,7 +27,7 @@ function Header() {
                         onClick={() => navigate('/aboutus')}
                         className='hover:text-orange-600 cursor-pointer'>About us</li>
                     <li 
-                        onClick={() => navigate('/')}
+                        onClick={() => {clearItemFromStorage('token');navigate('/')}}
                         className='hover:text-orange-600 cursor-pointer'>Log out</li>
                 </ul>    
             </div>

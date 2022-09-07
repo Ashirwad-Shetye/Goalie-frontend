@@ -26,7 +26,7 @@ function Header() {
                         onClick={() => navigate('/aboutus')}
                         className='hover:text-orange-600 cursor-pointer'>About us</li>
                     <li 
-                        onClick={() => navigate('/')}
+                        onClick={() => navigate('/logout')}
                         className='hover:text-orange-600 cursor-pointer'>Log out</li>
                 </ul>    
             </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AiOutlineMenu, } from 'react-icons/ai'
 // import { RiDashboard2Line } from 'react-icons/ri'
 
@@ -25,6 +26,8 @@ export default Dropdown
 
 function DropdownMenu(){
 
+  const navigate = useNavigate();
+
   function DropdownItem(props: {children: React.ReactNode}){
     return(
       <ul className='text-center rounded-lg border-1 
@@ -47,7 +50,7 @@ function DropdownMenu(){
           <li className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
           {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             About us</li>
-          <li className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
+          <li onClick={()=>navigate('/logout')} className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
           {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             Log out</li>
         </DropdownItem>

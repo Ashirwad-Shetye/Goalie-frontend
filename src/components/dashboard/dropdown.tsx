@@ -53,7 +53,7 @@ function DropdownMenu(){
           {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             About us</li>
           <li 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/logout')}
             className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
           {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             Log out</li>
