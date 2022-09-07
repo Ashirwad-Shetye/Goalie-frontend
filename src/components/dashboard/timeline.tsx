@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Timeline } from 'flowbite-react'
-import { getGoalData } from '../../services/serverCalls'
+import { getUsersAllGoals } from '../../services/serverCalls'
 
 function TimelineCard() {
 
@@ -14,10 +14,10 @@ function TimelineCard() {
     }>
 >([])
     useEffect(()=>{
-        getGoalData()
+        getUsersAllGoals()
         .then((response) => {
             console.log(response)
-            setGoals([...response.data.pendingGoals, ...response.data.finishedGoals]);
+            setGoals([...response.data]);
         })
         .catch((error) => {
             console.log(error)
