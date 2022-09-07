@@ -1,10 +1,12 @@
 import React from 'react'
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '../components/creategoal/header'
 import { toast } from 'react-toastify'
 import { setGoal } from './../services/serverCalls'
 function CreateGoal() {
 
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         goal: '',
         date: '',
@@ -44,7 +46,7 @@ function CreateGoal() {
     const onSubmit = (e: React.SyntheticEvent) =>{
 
         e.preventDefault()
-        setGoal({text:formData.goal, lastDate: new Date(formData.date), description: formData.description, remaindInDays: formData.remaind})
+        setGoal({text:formData.goal, lastDate: new Date(formData.date), description: formData.description, remaindInDays: formData.remaind},navigate)
 
             // } else {
         //     const userData = {
