@@ -82,17 +82,17 @@ function Signup() {
             </div>
             <form
                 onSubmit={onSubmit} 
-                className='container w-2/3 md:w-96 mx-auto'>
-                <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 '>Signup
+                className='container w-72 md:w-96 mx-auto'>
+                <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 text-left'>Signup
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
-                <div className='text-sm md:text-md md:py-2 mt-2 font-lato font-semibold text-slate-500'>
+                <div className='text-sm md:text-md md:py-2 mt-2 font-lato font-semibold text-slate-500 text-left'>
                     Create a 100% free account and start setting your goals with the best tools.
                 </div>
                 <div className='container mx-auto shrink-0 md:mt-0 w-full md:py-2 flex-col flex'>
                     
                     {/* Username */}
-                    <label className='text-xl text-slate-600 py-2 lg:pb-4'>Username</label>
+                    <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left'>Username</label>
                     <input 
                         type="text" 
                         placeholder='Enter your Username' 
@@ -101,11 +101,11 @@ function Signup() {
                         value={name}
                         onChange={onChange}
                         className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
-                            border-orange-400 rounded-lg text-center'
+                            border-orange-400 rounded-lg placeholder:text-center'
                     /> 
                     
                     {/* Email */}
-                    <label className='text-xl text-slate-600 py-2'>Email</label>
+                    <label className='text-xl text-slate-600 py-2 text-left'>Email</label>
                     <input 
                         type="text" 
                         placeholder='Email address'
@@ -114,11 +114,11 @@ function Signup() {
                         value={email}
                         onChange={onChange} 
                         className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
-                            border-orange-400 rounded-lg' 
+                            border-orange-400 rounded-lg placeholder:text-center' 
                     />
                     
                     {/* Password */}
-                    <label className='text-xl text-slate-600 py-2'>Password</label>
+                    <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
                     <input 
                         type="text" 
                         placeholder='Password'
@@ -127,7 +127,7 @@ function Signup() {
                         value={password}
                         onChange={onChange} 
                         className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 
-                            border-orange-400 rounded-lg'
+                            border-orange-400 rounded-lg placeholder:text-center'
                     />
                 </div>
                 <button

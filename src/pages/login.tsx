@@ -47,32 +47,32 @@ function Login(props:any) {
             className='absolute text-2xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl cursor-pointer duration-200 text-orange-600 hover:text-slate-500'>
                 <BiArrowBack />
             </div>
-            <form   onSubmit = {(e)=>onSubmit(e)} className='container w-2/3 md:w-96 mx-auto text-left'>
-                <div className='text-4xl py-2 md:py-4 mt-10 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 '>Login
+            <form   onSubmit = {(e)=>onSubmit(e)} className='container w-64 md:w-96 mx-auto'>
+                <div className='text-4xl py-2 md:py-4 mt-10 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 text-left'>Login
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
-                <div className='text-sm md:text-md md:py-2 mt-4 font-lato font-semibold text-slate-500'>
+                <div className='text-sm md:text-md md:py-2 mt-4 font-lato font-semibold text-slate-500 text-left'>
                     Welcome back to Goalie, start setting your goals with the best tools.
                 </div>
                 <div className='container mx-auto shrink-0 py-4 md:mt-0 w-full md:py-6 flex-col flex'>
                     
-                    <label className='text-xl text-slate-600 py-2'>Email</label>
+                    <label className='text-xl text-slate-600 py-2 text-left'>Email</label>
                     <input 
                         type="text"
                         name='email'
                         value={email}
                         onChange = {onChange} 
                         placeholder='Email address' 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg placeholder:text-center' />
                     
-                    <label className='text-xl text-slate-600 py-2'>Password</label>
+                    <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
                     <input 
                         type="text" 
                         name='password'
                         value={password}
                         onChange = {onChange}
                         placeholder='Password' 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg' />
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg placeholder:text-center' />
                 </div>
                 <button
                 type='submit'
