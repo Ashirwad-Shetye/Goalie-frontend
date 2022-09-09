@@ -26,7 +26,7 @@ function TimelineCard() {
   return (
     <div className="mt-48 lg:mt-5 lg:mr-10">
         <div className="text-3xl font-poppins font-bold mt-2 mb-3 ml-10 text-orange-500">Goal Timeline</div>
-        <div className="justify-center w-full mx-auto align-middle h-80 px-12 overflow-x-clip lg: 
+        <div className="justify-center bg-red-200 w-full mx-auto align-middle h-80 px-12 overflow-x-clip lg: 
         overflow-scroll py-5 scrollbar-thin scrollbar-thumb-11 scrollbar-thumb-orange-400 scrollbar-track-transparent overflow-y-scroll
         scrollbar-thumb-rounded-full scrollbar-track-rounded-full"> 
         <Timeline>

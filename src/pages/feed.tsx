@@ -9,7 +9,7 @@ function Feed() {
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
     w-screen h-screen justify-center align-middle'>
       <Header />
-      <div className=''>
+      <div className='mt-0 md:mt-0'>
         <UsersList/>
         <PostCard />
       </div>

@@ -32,8 +32,9 @@ function App() {
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/dashboard" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Dashboard /></Protected>}/>
-              {/* <Route path="/feed" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Feed /></Protected>} /> */}
-              <Route path="/feed" element={<Feed />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route path="/feed" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Feed /></Protected>} />
+              {/* <Route path="/feed" element={<Feed />} /> */}
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login {...loginProps}/>} />
               <Route path="/logout" element={<Logout {...logoutProps}/>} />

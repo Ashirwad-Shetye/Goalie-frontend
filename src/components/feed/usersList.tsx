@@ -1,8 +1,19 @@
 import React from 'react'
 
+
 function UsersList() {
   return (
-    <div>UsersList</div>
+    <div>
+      <User />
+    </div>
+  )
+}
+
+function User(){
+  return(
+    <div>
+      
+    </div>
   )
 }
 

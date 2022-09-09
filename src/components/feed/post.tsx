@@ -1,9 +1,10 @@
 import React, { useRef, useState} from 'react'
 import { Avatar } from 'flowbite-react'
 import avatar1 from '../../styles/assets/avatar/avatar1.jpeg'
-import post1 from '../../styles/assets/placeholders/post1.jpg'
+import post2 from '../../styles/assets/placeholders/post2.jpg'
 import { AiOutlineHeart, AiFillHeart, AiOutlineSend } from 'react-icons/ai'
 import { toast } from 'react-toastify'
+import Comment from './comments'
 
 // import axios from 'axios'
 
@@ -66,11 +67,13 @@ function Post() {
     <div className='w-11/12 mx-auto py-5'>
         <div className=''>
             <div className='flex space-x-5 '>
-                <Avatar
-                    img={avatar1}
-                    size="lg"
-                    rounded={true}
-                />
+                <div className='border-2 border-gray-200 rounded-full'>
+                    <Avatar
+                        img={avatar1}
+                        size="lg"
+                        rounded={true}
+                    />
+                </div>
                 <div className='my-auto'>
                     <h1 className=' text-xl'>Username</h1>
                     <h2 className='text-sm text-gray-500 font-lato font-semibold'> Posted on: 9-9-22</h2>
@@ -78,7 +81,7 @@ function Post() {
             </div>
             <h1 className='w-11/12 mx-auto mt-2'>Aiming to complete 5 treks this year with my pup.</h1>
             <img 
-                src={post1} 
+                src={post2} 
                 alt="post"
                 className='w-full my-5' />
         </div>
@@ -108,6 +111,7 @@ function Post() {
                 </button>
             </form>
         </div>
+        <Comment />
         <svg viewBox="0 0 100 1" xmlns="http://www.w3.org/2000/svg">
             <line x1="0" y1="1" x2="100" y2="1" stroke="gray" strokeWidth='0.5' opacity='0.5' />
         </svg>
