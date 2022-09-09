@@ -18,14 +18,6 @@ function Header() {
                 <ul className='hidden absolute right-40 md:flex items-center space-x-8 lg:space-x-12 text-xl 
                     font-lato font-semibold my-14'>
                     <li onClick={
-                        () => navigate('/dashboard')} 
-                        className='hover:text-orange-600 duration-200 cursor-pointer'>Dashboard
-                    </li>
-                    <li onClick={
-                        () => navigate('/feed')}
-                        className='hover:text-orange-600 duration-200 cursor-pointer'>Feed
-                    </li>
-                    <li onClick={
                         () => navigate('/aboutus')}
                         className='hover:text-orange-600 duration-200 cursor-pointer'>About us
                     </li>

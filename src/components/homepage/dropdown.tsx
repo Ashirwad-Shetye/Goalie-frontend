@@ -41,16 +41,6 @@ function DropdownMenu(){
     <div className='absolute text-slate-800 mt-16 w-48 bg-white shadow-lg -translate-x-16 rounded-lg
       overflow-hidden p-1'>
         <DropdownItem>
-          <li 
-            onClick={() => navigate('/dashboard')}
-            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
-            {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
-            Dashboard</li>
-          <li
-            onClick={() => navigate('/feed')}
-            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><AiOutlineComment/></div> */}
-            Community</li>
           <li
             onClick={() => navigate('/aboutus')}
             className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
