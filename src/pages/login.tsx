@@ -38,16 +38,15 @@ function Login(props:any) {
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            
-            className='container h-2/3 w-2/3 
-            my-40 bg-white rounded-3xl shadow-goalBtn
+            className='container h-fit w-2/3 
+            my-auto bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
             <div 
             onClick={()=> navigate('/')}
             className='absolute text-2xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl cursor-pointer duration-200 text-orange-600 hover:text-slate-500'>
                 <BiArrowBack />
             </div>
-            <form   onSubmit = {(e)=>onSubmit(e)} className='container w-64 md:w-96 mx-auto'>
+            <form   onSubmit = {(e)=>onSubmit(e)} className='container w-2/3 md:w-96 mx-auto'>
                 <div className='text-4xl py-2 md:py-4 mt-10 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 text-left'>Login
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
@@ -72,7 +71,7 @@ function Login(props:any) {
                         value={password}
                         onChange = {onChange}
                         placeholder='Password' 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg placeholder:text-center' />
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg text-center' />
                 </div>
                 <button
                 type='submit'
@@ -83,7 +82,7 @@ function Login(props:any) {
             </form>
 
             <div>
-                <p className='py-2 md:text-xl text-slate-600 md:py-6'>Need a new account?
+                <p className='pt-4 pb-10 md:text-xl text-slate-600 md:py-6'>Need a new account?
                     <span 
                     onClick={() => navigate('/signup')}
                     className='text-orange-500 cursor-pointer'> Signup</span>

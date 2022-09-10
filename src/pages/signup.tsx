@@ -71,8 +71,8 @@ function Signup() {
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            className='container h-2/3 w-2/3 
-            my-40 bg-white rounded-3xl shadow-goalBtn
+            className='container h-fit w-2/3 
+            my-auto bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
             <div 
             onClick={()=> navigate('/')}
@@ -138,7 +138,7 @@ function Signup() {
                 >Submit</button>
             </form>
             <div>
-                <p className='md:text-xl text-slate-600 md:py-2'>Already have an account?
+                <p className='pb-10 md:text-xl text-slate-600 md:py-2'>Already have an account?
                     <span 
                     onClick={() => navigate('/login')}
                 className='text-orange-500 cursor-pointer'> Login</span>
