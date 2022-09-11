@@ -66,7 +66,7 @@ function Login(props:any) {
                     
                     <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         name='password'
                         value={password}
                         onChange = {onChange}

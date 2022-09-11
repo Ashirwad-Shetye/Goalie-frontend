@@ -120,7 +120,7 @@ function Signup() {
                     {/* Password */}
                     <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
                     <input 
-                        type="text" 
+                        type="password" 
                         placeholder='Password'
                         id='password' 
                         name='password' 

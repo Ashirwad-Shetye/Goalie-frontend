@@ -21,10 +21,11 @@ export const login = (params, navigate, setIsLoggedIn) => {
 export const register = (params) => {
     userRegister(params)
     .then((response) => {
-        console.log(response)
+        toast.success("User Registered Successfully");
+
     })
     .catch((error) => {
-        console.log(error)
+        toast.error("Someting went wrong");
     })
 }
 
@@ -33,9 +34,12 @@ export const setGoal = (params, navigate) => {
     .then((response) => {
         console.log(response)
         navigate('/dashboard')
+        toast.success('Goal Added Successfully')
     })
     .catch((error) => {
         console.log(error)
+        toast.error("Someting went wrong");
+
     })
 }
 
