@@ -8,7 +8,7 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-home bg-top bg-no-repeat bg-cover bg-fixed 
+    <div className="bg-home bg-top bg-no-repeat bg-cover 
             w-screen h-screen text-center">
         <Header />
         <div className='w-96 mx-auto mt-72 

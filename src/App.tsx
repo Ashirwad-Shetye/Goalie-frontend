@@ -11,6 +11,7 @@ import ErrorGeneral from './pages/error_general';
 import Error404 from './pages/error_404';
 import { Route, Routes } from 'react-router-dom';
 import { getItemFromStorage } from './services/storage';
+import AboutUs from './pages/aboutus';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
               {/* <Route path="/feed" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Feed /></Protected>} /> */}
               <Route path="/feed" element={<Feed />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/aboutus" element={<AboutUs />} />
               <Route path="/login" element={<Login {...loginProps}/>} />
               <Route path="/logout" element={<Logout {...logoutProps}/>} />
 

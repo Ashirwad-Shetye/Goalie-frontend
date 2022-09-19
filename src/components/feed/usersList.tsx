@@ -1,5 +1,11 @@
 import React from 'react'
 
+const data = [
+  {
+    name: 'Bob',
+    avatar: './file/'
+  }
+]
 
 function UsersList() {
   return (
@@ -12,7 +18,7 @@ function UsersList() {
 function User(){
   return(
     <div>
-      
+
     </div>
   )
 }

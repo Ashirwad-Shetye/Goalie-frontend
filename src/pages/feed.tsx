@@ -7,13 +7,15 @@ import UsersList from '../components/feed/usersList';
 function Feed() {
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    w-screen h-screen justify-center align-middle'>
+    w-screen h-screen'>
       <Header />
-      <div className='mt-0 md:mt-0'>
-        <UsersList/>
-        <PostCard />
+      <div className='container bg-blue-200'>
+        <div className='bg-red-200 mt-10 w-screen'>
+          <UsersList/>
+          <PostCard />
+        </div>
+        <PostCreate />
       </div>
-      <PostCreate />
     </div>
   )
 }
