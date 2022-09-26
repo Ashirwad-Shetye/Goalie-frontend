@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Tooltip } from 'flowbite-react'
-import avatar1 from '../styles/assets/avatar/avatar1.jpeg'
+import avatar_24 from '../styles/assets/avatar/avatar_24.png'
 
 export default function MainAvatar() {
   return (
@@ -14,7 +14,7 @@ export default function MainAvatar() {
       style="light"
       arrow={false}>
         <Avatar
-            img={avatar1}
+            img={avatar_24}
             size="lg"
             rounded={true}
         />

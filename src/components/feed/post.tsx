@@ -1,7 +1,7 @@
 import React, { useRef, useState} from 'react'
 import { Avatar } from 'flowbite-react'
 import avatar1 from '../../styles/assets/avatar/avatar1.jpeg'
-import post2 from '../../styles/assets/placeholders/post2.jpg'
+import post1 from '../../styles/assets/placeholders/post1.jpg'
 import { AiOutlineHeart, AiFillHeart, AiOutlineSend } from 'react-icons/ai'
 import { toast } from 'react-toastify'
 import Comment from './comments'
@@ -52,7 +52,7 @@ function Post() {
 
     const onSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault()
-        toast.success('Comment submitted',{
+        toast('Comment submitted successfully',{
             position: "top-center",
             autoClose: 1000,
             hideProgressBar: true,
@@ -81,7 +81,7 @@ function Post() {
             </div>
             <h1 className='w-11/12 mx-auto mt-2'>Aiming to complete 5 treks this year with my pup.</h1>
             <img 
-                src={post2} 
+                src={post1} 
                 alt="post"
                 className='w-full my-5' />
         </div>
@@ -101,7 +101,7 @@ function Post() {
                     placeholder='Comment'
                     ref={textRef}
                     onChange={onChangeHandler}
-                    className="rounded-3xl w-[200px] h-10 border-gray-300 scrollbar-hide focus:ring-2 resize-none focus:border-white
+                    className="rounded-3xl w-[200px] md:w-[280px] lg:w-[360px] h-10 border-gray-300 scrollbar-hide focus:ring-2 resize-none focus:border-white
                           focus:ring-orange-500 focus:ring-opacity-25"/>
                 <button
                     onClick={onSubmit}

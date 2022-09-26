@@ -5,9 +5,13 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/signup/header'
 import { BiArrowBack } from 'react-icons/bi'
+import { FaUser } from 'react-icons/fa'
 import {  reset } from '../features/auth/authSlice' 
 import { AppDispatch, RootState } from '../store/store'
 import { register } from './../services/serverCalls'
+import ImageSlider from '../components/signup/imageslider'
+import {SliderData} from '../components/signup/sliderdata';
+
 
 
 function Signup() {
@@ -83,25 +87,27 @@ function Signup() {
             <form
                 onSubmit={onSubmit} 
                 className='container w-72 md:w-96 mx-auto'>
-                <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 text-left'>Signup
+                <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-32 lg:py-0 text-left'>Signup
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
                 <div className='text-sm md:text-md md:py-2 mt-2 font-lato font-semibold text-slate-500 text-left'>
                     Create a 100% free account and start setting your goals with the best tools.
                 </div>
                 <div className='container mx-auto shrink-0 md:mt-0 w-full md:py-2 flex-col flex'>
+
+                    <ImageSlider slides={SliderData}/>
                     
                     {/* Username */}
-                    <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left'>Username</label>
+                    <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left flex space-x-4'><FaUser className='align-middle'/>Username</label>
                     <input 
                         type="text" 
-                        placeholder='Enter your Username' 
+                        placeholder='for ex. username123 ' 
                         id='name' 
                         name='name' 
                         value={name}
                         onChange={onChange}
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
-                            border-orange-400 rounded-lg placeholder:text-center'
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
+                            border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center'
                     /> 
                     
                     {/* Email */}
@@ -113,8 +119,8 @@ function Signup() {
                         name='email' 
                         value={email}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2
-                            border-orange-400 rounded-lg placeholder:text-center' 
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
+                        border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center' 
                     />
                     
                     {/* Password */}
@@ -126,8 +132,8 @@ function Signup() {
                         name='password' 
                         value={password}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 
-                            border-orange-400 rounded-lg placeholder:text-center'
+                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
+                        border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center'
                     />
                 </div>
                 <button

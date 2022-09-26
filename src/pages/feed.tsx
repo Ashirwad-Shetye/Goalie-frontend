@@ -9,8 +9,8 @@ function Feed() {
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
     w-screen h-screen'>
       <Header />
-      <div className='container bg-blue-200'>
-        <div className='bg-red-200 mt-10 w-screen'>
+      <div className='container'>
+        <div className='mt-10 md:flex w-screen'>
           <UsersList/>
           <PostCard />
         </div>
