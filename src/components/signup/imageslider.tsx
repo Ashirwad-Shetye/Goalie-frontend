@@ -6,7 +6,7 @@ import { AiOutlineRight, AiOutlineLeft} from 'react-icons/ai'
 
 function ImageSlider({slides} : any) {
 
-    const [ current, setCurrent ] = useState<any>();
+    const [ current, setCurrent ] = useState(0);
 
     const length = slides.length
 
@@ -23,35 +23,38 @@ function ImageSlider({slides} : any) {
     }
 
   return (
-    <section className='container w-40 h-28 mx-auto justify-center align-middle flex bg-red-200'>
+    <section className='w-48 h-28 mx-auto justify-center align-middle'>
 
-        <AiOutlineLeft 
-            onClick={prevSlide}
-            className='absolute z-10 mr-36 mt-10 cursor-pointer text-3xl text-slate-700 select-none'
-        />
+        <div className='absolute h-10 mt-10 w-48 flex items-center justify-center space-x-32'>
+            <AiOutlineLeft 
+                onClick={prevSlide}
+                className='z-10 cursor-pointer text-3xl text-slate-700 select-none hover:text-orange-500
+                    hover:scale-110 duration-150'
+            />
+
+            <AiOutlineRight 
+                onClick={nextSlide}
+                className='z-10 cursor-pointer text-3xl text-slate-700 select-none hover:text-orange-500
+                    hover:scale-110 duration-150'
+            />
+        </div>
 
         {SliderData.map((slide, index) => {
             return (
-                <div 
-                    className={index === current ? 'opacity-100 duration-1000 scale-105':'opacity-0 duration-1000'}
-                    key={index}
-                >
+                <div className={index === current ? 'opacity-100 duration-1000 scale-105':'opacity-0 duration-1000'}
+                    key={index}>
                     {index === current && (
                         <img 
-                        src={slide.image} 
-                        alt="avatar slider"
-                        className='w-28 h-28 rounded-full' 
+                            src={slide.image} 
+                            alt="avatar slider"
+                            className='w-28 h-28 rounded-full mx-auto' 
                         />
                     )}
                     
                 </div>
-                )
+            )
         })}
 
-        <AiOutlineRight 
-            onClick={nextSlide}
-            className='absolute z-10 ml-36 mt-10 cursor-pointer text-3xl text-slate-700 select-none'
-        />
 
     </section>
   )

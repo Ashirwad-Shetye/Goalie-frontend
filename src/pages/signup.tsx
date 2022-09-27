@@ -5,7 +5,6 @@ import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/signup/header'
 import { BiArrowBack } from 'react-icons/bi'
-import { FaUser } from 'react-icons/fa'
 import {  reset } from '../features/auth/authSlice' 
 import { AppDispatch, RootState } from '../store/store'
 import { register } from './../services/serverCalls'
@@ -75,65 +74,69 @@ function Signup() {
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            className='container h-fit w-2/3 
+            className='container h-fit w-2/3 mt-32 
             my-auto bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
             <div 
             onClick={()=> navigate('/')}
-            className='absolute text-2xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl duration-200 
+            className='absolute text-3xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl duration-200 
                         cursor-pointer text-orange-600 hover:text-slate-500'>
-                <BiArrowBack />
+                <BiArrowBack className='hover:scale-110 duration-150'/>
             </div>
             <form
                 onSubmit={onSubmit} 
                 className='container w-72 md:w-96 mx-auto'>
-                <div className='text-4xl py-2 md:py-4 mt-5 font-lato font-bold md:mt-32 lg:mt-32 lg:py-0 text-left'>Signup
+                <div className='text-4xl px-5 py-2 md:py-4 mt-5 font-lato font-bold md:mt-14 lg:mt-32 lg:py-0 select-none text-center md:text-left'>Signup
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
-                <div className='text-sm md:text-md md:py-2 mt-2 font-lato font-semibold text-slate-500 text-left'>
+                <div className='text-sm px-5 md:text-md md:py-2 mt-2 select-none font-lato font-semibold text-slate-500 text-center md:text-left'>
                     Create a 100% free account and start setting your goals with the best tools.
                 </div>
                 <div className='container mx-auto shrink-0 md:mt-0 w-full md:py-2 flex-col flex'>
-
-                    <ImageSlider slides={SliderData}/>
+                    <div>
+                        <h1 className='mt-5 md:text-xl select-none text-slate-400 mb-5'>Select your avatar</h1>
+                        <ImageSlider slides={SliderData}/>
+                    </div>
                     
                     {/* Username */}
-                    <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left flex space-x-4'><FaUser className='align-middle'/>Username</label>
+                    {/* <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left flex space-x-4'>Username</label> */}
                     <input 
                         type="text" 
-                        placeholder='for ex. username123 ' 
+                        maxLength={12}
+                        placeholder='Enter username here' 
                         id='name' 
                         name='name' 
                         value={name}
                         onChange={onChange}
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
-                            border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center'
+                        className='w-[200px] md:w-[300px] mt-5 placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
+                            focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg'
                     /> 
                     
                     {/* Email */}
-                    <label className='text-xl text-slate-600 py-2 text-left'>Email</label>
+                    {/* <label className='text-xl text-slate-600 py-2 text-left'>Email</label> */}
                     <input 
                         type="text" 
-                        placeholder='Email address'
+                        placeholder='Enter email address here'
                         id='email' 
                         name='email' 
                         value={email}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
-                        border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center' 
+                        className='w-[200px] md:w-[300px] mt-5 placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
+                            focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg' 
                     />
                     
                     {/* Password */}
-                    <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
+                    {/* <label className='text-xl text-slate-600 py-2 text-left'>Password</label> */}
                     <input 
+                        maxLength={12}
                         type="password" 
-                        placeholder='Password'
+                        placeholder='Enter your password here'
                         id='password' 
                         name='password' 
                         value={password}
                         onChange={onChange} 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0
-                        border-b-2 border-orange-400 focus:border-orange-500 focus:ring-0 placeholder:text-center'
+                        className='w-[200px] md:w-[300px] mt-5 placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
+                            focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg'
                     />
                 </div>
                 <button
@@ -144,7 +147,7 @@ function Signup() {
                 >Submit</button>
             </form>
             <div>
-                <p className='pb-10 md:text-xl text-slate-600 md:py-2'>Already have an account?
+                <p className='pb-10 md:text-xl text-slate-600 select-none md:py-2'>Already have an account?
                     <span 
                     onClick={() => navigate('/login')}
                 className='text-orange-500 cursor-pointer'> Login</span>
