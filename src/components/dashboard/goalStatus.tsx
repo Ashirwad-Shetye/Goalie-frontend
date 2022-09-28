@@ -15,7 +15,8 @@ useEffect(()=>{
 },[])
   return (
     <div>
-        <h1 className="text-3xl font-poppins font-bold text-orange-500 mb-4">Goal status</h1>
+        <h1 className="text-3xl font-poppins font-bold text-gray-500 mb-4">Goal <span 
+            className='font-medium text-2xl text-gray-500'>Status</span></h1>
         <div className='mx-auto pb-4 justify-center align-middle border-b-2
             container flex'>
             <div className='w-28 h-28 lg:w-[180px] lg:h-32 pr-12 pl-4 text-center flex-col cursor-default border-r-2'>

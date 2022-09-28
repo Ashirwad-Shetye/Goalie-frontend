@@ -16,7 +16,7 @@ function Dashboard() {
             <GoalStatus />
             <Calender />
           </div>
-          <div className='container -mt-10 md:mt-0 justify-end max-w-3xl h-[545px] align-middle lg:shadow-lg lg:bg-white lg:rounded-2xl'>
+          <div className='container -mt-10 md:mt-0 justify-center align-middle max-w-3xl h-[545px] lg:rounded-2xl'>
             <UserData />
             <TimelineCard />
           </div>

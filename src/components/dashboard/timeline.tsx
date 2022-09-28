@@ -24,9 +24,10 @@ function TimelineCard() {
         })
     },[])
   return (
-    <div className="mt-48 lg:mt-5 lg:mr-10">
-        <div className="text-3xl font-poppins font-bold mt-2 mb-3 ml-10 text-orange-500">Goal Timeline</div>
-        <div className="justify-center bg-red-200 w-full mx-auto align-middle h-80 px-12 overflow-x-clip lg: 
+    <div className="mt-10 lg:mt-5 lg:mr-10 w-full">
+        <div className="text-3xl font-poppins font-bold mt-2 mb-3 ml-10 text-gray-500">Goal <span 
+            className='font-medium text-2xl text-gray-500'>Timeline</span></div>
+        <div className="justify-center lg:bg-red-200 w-full mx-auto align-middle h-80 px-12 overflow-x-clip rounded-2xl lg:shadow-xl 
         overflow-scroll py-5 scrollbar-thin scrollbar-thumb-11 scrollbar-thumb-orange-400 scrollbar-track-transparent overflow-y-scroll
         scrollbar-thumb-rounded-full scrollbar-track-rounded-full"> 
         <Timeline>
@@ -37,7 +38,7 @@ function TimelineCard() {
                     <Timeline.Point />
                     <Timeline.Content>
                     <Timeline.Time>
-                        <div className="text-lg text-slate-600">
+                        <div className="text-lg fon text-slate-600">
                             {new Date(goal.lastDate).getDate()} {month[new Date(goal.lastDate).getMonth()]} {new Date(goal.lastDate).getFullYear()}
                         </div>
                     </Timeline.Time>
