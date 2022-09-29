@@ -5,6 +5,7 @@ import Header from '../components/login/header'
 import { BiArrowBack } from 'react-icons/bi'
 import { login } from './../services/serverCalls'
 import { clearItemFromStorage } from './../services/storage'
+import { toast } from 'react-toastify'
 
 function Login(props:any) {
     const [formData, setFormData] = useState({
@@ -30,6 +31,13 @@ function Login(props:any) {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
+        if (email === "" && password === ""){
+            toast.error('Please enter all credentials')
+        } else if (email === ""){
+            toast.error('Please enter email address')
+        } else if (password === ""){
+            toast.error('Please enter password')
+        }
         login({email,password}, navigate, props.setIsLoggedIn)
     }
 
@@ -40,38 +48,41 @@ function Login(props:any) {
         <section 
             className='container h-fit w-2/3 
             my-auto bg-white rounded-3xl shadow-goalBtn
-            md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 '>
+            md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 justify-center align-middle'>
             <div 
             onClick={()=> navigate('/')}
-            className='absolute text-2xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl cursor-pointer duration-200 text-orange-600 hover:text-slate-500'>
-                <BiArrowBack />
+            className='absolute text-3xl mt-8 ml-80 md:mt-10 md:ml-12 md:text-4xl duration-200 
+            cursor-pointer text-orange-600 hover:text-slate-500'>
+                <BiArrowBack className='hover:scale-110 duration-150'/>
             </div>
             <form   onSubmit = {(e)=>onSubmit(e)} className='container w-2/3 md:w-96 mx-auto'>
-                <div className='text-4xl py-2 md:py-4 mt-10 font-lato font-bold md:mt-32 lg:mt-40 lg:py-0 text-left'>Login
+                <div className='text-4xl px-5 py-2 md:py-4 mt-5 font-lato font-bold md:mt-28 lg:mt-40 lg:py-0 select-none text-center md:text-left'>Login
                     <span className='text-6xl text-bold text-orange-500'>.</span>
                 </div>
-                <div className='text-sm md:text-md md:py-2 mt-4 font-lato font-semibold text-slate-500 text-left'>
+                <div className='text-sm px-5 md:text-md md:py-2 mt-2 select-none font-lato font-semibold text-slate-500 text-center md:text-left'>
                     Welcome back to Goalie, start setting your goals with the best tools.
                 </div>
-                <div className='container mx-auto shrink-0 py-4 md:mt-0 w-full md:py-6 flex-col flex'>
+                <div className='container mx-auto shrink-0 py-8 space-y-10 md:mt-0 w-full md:py-6 flex-col flex'>
                     
-                    <label className='text-xl text-slate-600 py-2 text-left'>Email</label>
+                    {/* <label className='text-xl text-slate-600 py-2 text-left'>Email</label> */}
                     <input 
                         type="text"
                         name='email'
                         value={email}
                         onChange = {onChange} 
                         placeholder='Email address' 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg placeholder:text-center' />
+                        className='w-[200px] md:w-[300px] mt-5 placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
+                            focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg' />
                     
-                    <label className='text-xl text-slate-600 py-2 text-left'>Password</label>
+                    {/* <label className='text-xl text-slate-600 py-2 text-left'>Password</label> */}
                     <input 
                         type="password" 
                         name='password'
                         value={password}
                         onChange = {onChange}
                         placeholder='Password' 
-                        className='w-full placeholder:text-slate-400 mx-auto p-1 md:p-2 border-2 border-orange-400 rounded-lg text-center' />
+                        className='w-[200px] md:w-[300px] placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
+                            focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg' />
                 </div>
                 <button
                 type='submit'

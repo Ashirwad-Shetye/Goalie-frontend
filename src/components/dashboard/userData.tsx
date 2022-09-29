@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Avatar } from 'flowbite-react'
 import { getUserInfo } from '../../services/serverCalls'
-import avatar1 from '../../styles/assets/avatar/avatar1.jpeg'
+import avatar_24 from '../../styles/assets/avatar/avatar_24.png'
 
 function UserData() {
   const [userData, setUserData] = useState({name:null, email:null})
@@ -16,10 +16,10 @@ function UserData() {
   },[]) 
   return (
     <div className="w-full h-[150px] lg:h-[175px] justify-start items-center 
-      bg-blue-200 rounded-2xl shadow-lg flex space-x-6">
-      <div className="border-2 ml-10 h-max border-orange-400 rounded-full">
+      bg-white rounded-2xl shadow-lg flex space-x-6">
+      <div className="ml-10 h-max select-none rounded-full">
         <Avatar
-              img={avatar1}
+              img={avatar_24}
               size="xl"
               rounded={true}
         />          

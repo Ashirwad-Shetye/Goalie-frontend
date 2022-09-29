@@ -55,7 +55,9 @@ function Signup() {
     const onSubmit = (e: React.SyntheticEvent) =>{
         e.preventDefault()
 
-        if(password.length === 0){
+        if (email === "" && password === ""){
+            toast.error('Please enter all credentials')
+        } else if(password.length === 0){
             toast.error('Password is required')
         } else {
             const userData = {
