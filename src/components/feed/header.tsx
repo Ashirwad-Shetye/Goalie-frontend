@@ -9,8 +9,8 @@ function Header() {
     const navigate = useNavigate();
 
   return (
-    <div className='w-screen h-32'>
-        <nav className='flex justify-end'>
+    <div className='w-screen '>
+        <nav className='flex justify-end h-32'>
             <div className='top-10 w-36 absolute left-4 cursor-pointer md:w-48 md:top-4'>
                 <img 
                     onClick={() => navigate('/dashboard')}

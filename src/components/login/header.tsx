@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../../styles/assets/logo/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { BiArrowBack } from 'react-icons/bi'
 
 function Header() {
 
@@ -13,7 +14,13 @@ function Header() {
                 <img 
                     onClick={() => navigate('/dashboard')}
                 src={logo} alt="logo" />
-            </div>          
+            </div>  
+            <div 
+            onClick={()=> navigate('/')}
+            className='md:hidden absolute right-10 text-3xl top-[60px] duration-200 
+                        cursor-pointer text-orange-600 hover:text-slate-500'>
+                <BiArrowBack className='hover:scale-110 duration-150'/>          
+            </div>        
         </nav>
     </div>
   )
