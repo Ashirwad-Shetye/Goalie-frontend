@@ -14,6 +14,9 @@ module.exports = {
       boxShadow: {
         'goalBtn': '0px 1px 10px 1px rgba(255,160,0,0.5)',
       },
+      colors: {
+        'header': "linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7822479333530288) 88%, rgba(255,255,255,0) 100%)",
+      },
     },
     fontFamily: {
       'lato': ['Lato', 'sans-serif'], 

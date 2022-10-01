@@ -8,10 +8,11 @@ function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-home bg-top bg-no-repeat bg-cover 
-            w-screen h-screen align-middle justify-center">
+    <div className="bg-home bg-no-repeat bg-cover bg-fixed 
+    min-h-fit min-w-fit h md:h-screen md:w-auto align-bottom justify-center">
         <Header />
-        <div className='container text-center h-screen w-fit mx-auto gap- align-middle gap-10 content-center grid'>
+        <div className='container relative top-16 text-center h-4/6 w-fit mx-auto align-middle gap-16 content-center 
+          grid'>
           <img 
             src={quote} 
             alt="A goal without a plan is just a dream" 

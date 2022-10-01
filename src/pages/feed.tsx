@@ -7,14 +7,13 @@ import UsersList from '../components/feed/usersList';
 function Feed() {
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    w-screen h-screen'>
+     min-h-fit min-w-fit h md:h-screen md:w-auto'>
       <Header />
-      <div className='container'>
-        <div className='mt-10 md:flex w-screen'>
-          <UsersList/>
-          <PostCard />
-        </div>
-        <PostCreate />
+      <PostCreate />
+      <div className='container relative top-8 md:flex w-fit mx-auto h-[540px] justify-center
+       content-center grid md:grid-rows-1 space-y-2 md:space-y-0 md:space-x-5 lg:space-x-10'>
+        <UsersList/>
+        <PostCard />
       </div>
     </div>
   )

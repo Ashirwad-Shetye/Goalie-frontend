@@ -12,6 +12,8 @@ import Error404 from './pages/error_404';
 import { Route, Routes } from 'react-router-dom';
 import { getItemFromStorage } from './services/storage';
 import AboutUs from './pages/aboutus';
+import pulse from './styles/assets/loaders/pulse.gif'
+import logo from './styles/assets/logo/logo.png'
 
 
 function App() {
@@ -26,25 +28,49 @@ function App() {
     useEffect(()=>{
         setIsLoggedIn((getItemFromStorage('token')?true:false) || false)
         console.log((getItemFromStorage('token')?true:false) || false)
+        setIsLoading(true)
+        setTimeout(()=>{
+            setIsLoading(false)
+        }, 3000)
     },[getItemFromStorage('token')])
+
+    const [isLoading, setIsLoading] = useState(true);
 
   return (
       <div>
-          <Routes>
-              <Route path="/" element={<Home />} />
-              {/* <Route path="/dashboard" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Dashboard /></Protected>}/> */}
-              <Route path="/dashboard" element={<Dashboard />} />
-              {/* <Route path="/feed" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Feed /></Protected>} /> */}
-              <Route path="/feed" element={<Feed />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/login" element={<Login {...loginProps}/>} />
-              <Route path="/logout" element={<Logout {...logoutProps}/>} />
+            { isLoading ? 
+                <div className='grid h-screen place-items-center'>
+                    <div className='grid place-items-center'>
+                        <img 
+                            src={pulse} 
+                            alt="loading gif"
+                            className='w-28 h-28'/>
+                        <h1 
+                            className='text-lg text-gray-500 flex items-center'
+                        ><img 
+                            src={logo} 
+                            alt="goalie"
+                            className='w-24' /> is getting ready to power your goals</h1>
+                    </div>
+                </div> 
+            :   <div>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        {/* <Route path="/dashboard" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Dashboard /></Protected>}/> */}
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        {/* <Route path="/feed" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><Feed /></Protected>} /> */}
+                        <Route path="/feed" element={<Feed />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="/aboutus" element={<AboutUs />} />
+                        <Route path="/login" element={<Login {...loginProps}/>} />
+                        <Route path="/logout" element={<Logout {...logoutProps}/>} />
 
-              <Route path="/creategoal" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><CreateGoal /></Protected>} />
-              <Route path="/error" element={<ErrorGeneral />} />
-              <Route path="/error_404" element={<Error404 />} />
-          </Routes>
+                        <Route path="/creategoal" element={<CreateGoal />} />
+                        {/* <Route path="/creategoal" element={<Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}><CreateGoal /></Protected>} /> */}
+                        <Route path="/error" element={<ErrorGeneral />} />
+                        <Route path="/error_404" element={<Error404 />} />
+                    </Routes>
+                </div>}
       </div>
   );
 }
