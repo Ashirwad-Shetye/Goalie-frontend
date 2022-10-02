@@ -46,18 +46,12 @@ function CreateGoal() {
     const onSubmit = (e: React.SyntheticEvent) =>{
 
         e.preventDefault()
-        setGoal({text:formData.goal, lastDate: new Date(formData.date), description: formData.description, remaindInDays: formData.remaind},navigate)
-
-            // } else {
-        //     const userData = {
-        //     name,
-        //     email,
-        //     password,
-        //     }
-        //     register(userData)
-
-            // dispatch(register(userData))
-        
+        setGoal({
+                    text:formData.goal, 
+                    lastDate: new Date(formData.date), 
+                    description: formData.description, 
+                    remaindInDays: formData.remaind
+                },navigate)        
     }
 
   return (

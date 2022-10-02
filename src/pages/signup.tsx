@@ -10,6 +10,7 @@ import { AppDispatch, RootState } from '../store/store'
 import { register } from './../services/serverCalls'
 import ImageSlider from '../components/signup/imageslider'
 import {SliderData} from '../components/signup/sliderdata';
+import { ThreeDots } from 'react-loader-spinner'
 
 
 
@@ -23,6 +24,8 @@ function Signup() {
     })
 
     const { name, email, password} = formData
+
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
 
     const navigate = useNavigate()
 
@@ -55,11 +58,17 @@ function Signup() {
     const onSubmit = (e: React.SyntheticEvent) =>{
         e.preventDefault()
 
+        setIsButtonLoading(true)
+
         if (email === "" && password === ""){
             toast.error('Please enter all credentials')
+            setIsButtonLoading(false)
         } else if(password.length === 0){
             toast.error('Password is required')
-        } else {
+            setIsButtonLoading(false)
+        } else if(isError){
+            setIsButtonLoading(false)
+        }else {
             const userData = {
             name,
             email,
@@ -102,7 +111,6 @@ function Signup() {
                         </div>
                         
                         {/* Username */}
-                        {/* <label className='text-xl text-slate-600 py-2 lg:pb-4 text-left flex space-x-4'>Username</label> */}
                         <input 
                             type="text" 
                             maxLength={12}
@@ -116,7 +124,6 @@ function Signup() {
                         /> 
                         
                         {/* Email */}
-                        {/* <label className='text-xl text-slate-600 py-2 text-left'>Email</label> */}
                         <input 
                             type="text" 
                             placeholder='Enter email address here'
@@ -129,7 +136,6 @@ function Signup() {
                         />
                         
                         {/* Password */}
-                        {/* <label className='text-xl text-slate-600 py-2 text-left'>Password</label> */}
                         <input 
                             maxLength={12}
                             type="password" 
@@ -142,17 +148,38 @@ function Signup() {
                                 focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg'
                         />
                     </div>
-                    <button
+                    {isButtonLoading ?
+                        <button
                         type='submit'
-                        className='text-xl my-4 font-lato bg-orange-500 
+                        className='text-xl my-4 font-lato bg-orange-400 h-12 w-28 cursor-default 
+                             py-1.5 px-4 rounded-2xl border-orange-400 duration-200 border-2'
+                        >
+                            <div className='w-fit mx-auto'>
+                                <ThreeDots 
+                                height="15" 
+                                width="70" 
+                                radius="3"
+                                color="#ffffff" 
+                                ariaLabel="three-dots-loading"
+                                visible={true}
+                                /> 
+                            </div>
+                        </button>
+                        :
+                        <button
+                        type='submit'
+                        className='text-xl my-4 font-lato bg-orange-500 h-12 w-28 
                             text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
                             hover:text-orange-500 border-orange-500 duration-200 border-2 hover:shadow-none'
-                    >Submit</button>
+                        >
+                            Submit
+                        </button> 
+                    }
                     <div>
                         <p className='pb-10 md:text-xl text-slate-600 select-none md:py-2'>Already have an account?
-                            <span 
+                        <span 
                             onClick={() => navigate('/login')}
-                        className='text-orange-500 cursor-pointer'> Login</span>
+                            className='text-orange-500 cursor-pointer'> Login</span>
                         </p>    
                     </div> 
                 </form>
