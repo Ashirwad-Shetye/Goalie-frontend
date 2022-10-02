@@ -80,7 +80,7 @@ function Signup() {
 
   return (
     <div className='flex bg-signup bg-center bg-no-repeat
-        bg-cover bg-fixed justify-center md:h-screen md:w-screen align-center text-center'>
+        bg-cover bg-fixed justify-center min-h-screen min-w-screen max-h-fit max-w-screen align-center text-center'>
         <Header />
         <section 
             className='container h-fit w-2/3 mt-32 

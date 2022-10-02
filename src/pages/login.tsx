@@ -54,11 +54,11 @@ function Login(props:any) {
     }
 
   return (
-    <div className='flex bg-signup w-screen h-screen bg-center bg-no-repeat
+    <div className='flex bg-signup min-h-screen min-w-screen max-h-fit max-w-screen bg-center bg-no-repeat
         bg-cover bg-fixed justify-center align-center text-center'>
         <Header />
         <section 
-            className='container h-fit w-2/3 
+            className='container h-fit w-2/3 mt-40 
             my-auto bg-white rounded-3xl shadow-goalBtn
             md:w-3/5 lg:w-2/5 md:h-screen md:my-0 md:rounded-l-2 md:rounded-r-none md:absolute md:right-0 justify-center align-middle'>
             <div 
