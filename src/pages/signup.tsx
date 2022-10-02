@@ -66,7 +66,7 @@ function Signup() {
         } else if(password.length === 0){
             toast.error('Password is required')
             setIsButtonLoading(false)
-        } else if(isError){
+        } else if(Error()){
             setIsButtonLoading(false)
         }else {
             const userData = {

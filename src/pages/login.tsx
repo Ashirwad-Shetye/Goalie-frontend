@@ -6,6 +6,8 @@ import { BiArrowBack } from 'react-icons/bi'
 import { login } from './../services/serverCalls'
 import { clearItemFromStorage } from './../services/storage'
 import { toast } from 'react-toastify'
+import { ThreeDots } from 'react-loader-spinner'
+
 
 function Login(props:any) {
     const [formData, setFormData] = useState({
@@ -15,9 +17,13 @@ function Login(props:any) {
         password2: '',
     })
 
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
+
+
     useEffect(()=>{
         clearItemFromStorage('token')
     })
+    
     const { email, password } = formData
 
     const navigate = useNavigate()
@@ -31,12 +37,18 @@ function Login(props:any) {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault()
+        setIsButtonLoading(true)
         if (email === "" && password === ""){
             toast.error('Please enter all credentials')
+            setIsButtonLoading(false)
         } else if (email === ""){
             toast.error('Please enter email address')
+            setIsButtonLoading(false)
         } else if (password === ""){
             toast.error('Please enter password')
+            setIsButtonLoading(false)
+        } else if(Error()){
+            setIsButtonLoading(false)
         }
         login({email,password}, navigate, props.setIsLoggedIn)
     }
@@ -84,12 +96,33 @@ function Login(props:any) {
                             className='w-[200px] md:w-[300px] placeholder:text-slate-400 mx-auto p-1 md:p-2 border-0 text-center
                                 focus:border-orange-500 focus:ring-0 placeholder:text-center shadow-inner rounded-lg' />
                     </div>
-                    <button
-                    type='submit'
-                    className='text-xl my-4 font-lato bg-orange-500 
-                        text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
-                        hover:text-orange-500 duration-200 border-orange-500 border-2 hover:shadow-none'
-                >Submit</button>
+                    {isButtonLoading ?
+                        <button
+                        type='submit'
+                        className='text-xl my-4 font-lato bg-orange-400 h-12 w-28 cursor-default 
+                             py-1.5 px-4 rounded-2xl border-orange-400 duration-200 border-2'
+                        >
+                            <div className='w-fit mx-auto'>
+                                <ThreeDots 
+                                height="15" 
+                                width="70" 
+                                radius="3"
+                                color="#ffffff" 
+                                ariaLabel="three-dots-loading"
+                                visible={true}
+                                /> 
+                            </div>
+                        </button>
+                        :
+                        <button
+                        type='submit'
+                        className='text-xl my-4 font-lato bg-orange-500 h-12 w-28 
+                            text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
+                            hover:text-orange-500 border-orange-500 duration-200 border-2 hover:shadow-none'
+                        >
+                            Submit
+                        </button> 
+                    }
                     <div>
                         <p className='pt-4 pb-10 md:text-xl text-slate-600 md:py-6'>Need a new account?
                             <span 
