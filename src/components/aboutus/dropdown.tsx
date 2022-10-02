@@ -1,9 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { AiOutlineMenu, } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom';
-
-// import { RiDashboard2Line } from 'react-icons/ri'
+import { useNavigate } from 'react-router';
 
 interface ItemProps{
   icon: React.ReactElement
@@ -36,28 +34,25 @@ function DropdownMenu(){
     )
   }
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className='absolute text-slate-800 mt-16 w-48 bg-white shadow-lg -translate-x-16 rounded-lg
-      overflow-hidden p-1'>
+    overflow-hidden p-1 z-50'>
         <DropdownItem>
-          <li
-            onClick={() => navigate('/dashboard')} 
-            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><AiOutlineComment/></div> */}
-            Dashboard</li>
           <li 
+          onClick={() => navigate('/dashboard')} 
+          className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
+          Dashboard</li>
+          <li
             onClick={() => navigate('/feed')} 
             className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             Feed</li>
           <li 
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/')} 
             className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
             Log out</li>
-        </DropdownItem>
+        </DropdownItem>          
     </div>
   )
 }

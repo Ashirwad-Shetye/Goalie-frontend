@@ -75,8 +75,6 @@ function Signup() {
             password,
             }
             register(userData)
-
-            // dispatch(register(userData))
         }
     }
 

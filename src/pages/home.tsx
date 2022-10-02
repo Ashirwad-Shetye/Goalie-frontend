@@ -9,9 +9,9 @@ function Home() {
 
   return (
     <div className="bg-home bg-no-repeat bg-cover bg-fixed 
-    min-h-fit min-w-fit h md:h-screen md:w-auto align-bottom justify-center">
+    min-h-screen min-w-screen max-h-fit max-w-screen align-bottom justify-center">
         <Header />
-        <div className='container relative top-16 text-center h-4/6 w-fit mx-auto align-middle gap-16 content-center 
+        <div className='container relative top-20 md:top-28 text-center h-4/6 w-fit mx-auto align-middle gap-16 content-center 
           grid'>
           <img 
             src={quote} 

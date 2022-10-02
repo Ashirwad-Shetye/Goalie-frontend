@@ -31,7 +31,7 @@ function App() {
         setIsLoading(true)
         setTimeout(()=>{
             setIsLoading(false)
-        }, 3000)
+        }, 2000)
     },[getItemFromStorage('token')])
 
     const [isLoading, setIsLoading] = useState(true);

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { AiOutlineMenu, } from 'react-icons/ai'
-// import { RiDashboard2Line } from 'react-icons/ri'
+import { useNavigate } from 'react-router';
 
 interface ItemProps{
   icon: React.ReactElement
@@ -10,7 +10,7 @@ interface ItemProps{
 
 function Dropdown() {
   return (
-    <div className='absolute right-16 mt-11 md:hidden'>
+    <div className='absolute right-32 mt-12 md:hidden'>
         <Menu>
           <MenuItem icon={<AiOutlineMenu/>}>
             <DropdownMenu/>
@@ -34,21 +34,28 @@ function DropdownMenu(){
     )
   }
 
+  const navigate = useNavigate();
+
+
   return (
-    <div className='absolute text-white mt-16 w-48 bg-orange-500 -translate-x-16 rounded-lg
-      overflow-hidden p-1'>
+    <div className='absolute text-slate-800 mt-16 w-48 bg-white shadow-lg -translate-x-16 rounded-lg
+    overflow-hidden p-1 z-50'>
         <DropdownItem>
-          <li className='rounded-lg duration-200 hover:bg-white hover:bg-opacity-20 py-2'>
-            {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
+          <li 
+            onClick={() => navigate('/dashboard')} 
+            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
             Dashboard</li>
-          <li className='rounded-lg duration-200 hover:bg-white hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><AiOutlineComment/></div> */}
-            Community</li>
-          <li className='rounded-lg duration-200 hover:bg-white hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
+          <li
+            onClick={() => navigate('/feed')} 
+            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
+            Feed</li>
+          <li 
+            onClick={() => navigate('/aboutus')} 
+            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
             About us</li>
-          <li className='rounded-lg duration-200 hover:bg-white hover:bg-opacity-20 py-2'>
-          {/* <div className='text-2xl ml-2 mr-4'><RiDashboard2Line/></div> */}
+          <li 
+            onClick={() => navigate('/')} 
+            className='rounded-lg duration-200 hover:bg-orange-500 hover:bg-opacity-20 py-2'>
             Log out</li>
         </DropdownItem>
     </div>

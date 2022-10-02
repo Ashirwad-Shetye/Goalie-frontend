@@ -9,7 +9,7 @@ import CreateGoalButton from '../common/goalCreateButton'
 function Dashboard() {
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-     justify-center align-middle'>
+     justify-center align-middle min-h-screen min-w-screen max-h-fit max-w-screen'>
         <Header />
         <div className="container mt-48 md:mt-0 w-10/12 mx-auto justify-center align-middle lg:mx-auto lg:flex lg:space-x-10">
           <div className="invisible absolute lg:relative lg:visible w-[400px]">

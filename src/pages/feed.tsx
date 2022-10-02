@@ -7,7 +7,7 @@ import UsersList from '../components/feed/usersList';
 function Feed() {
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-     min-h-fit min-w-fit h md:h-screen md:w-auto'>
+      min-h-screen min-w-screen max-h-fit max-w-screen'>
       <Header />
       <PostCreate />
       <div className='container relative top-8 md:flex w-fit mx-auto h-[540px] justify-center

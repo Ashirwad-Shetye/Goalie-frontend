@@ -6,9 +6,9 @@ import dev2 from '../styles/assets/about/dev2.jpeg'
 function AboutUs() {
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    w-screen h-screen justify-center align-middle'>
+    min-h-screen min-w-screen max-h-fit max-w-screen justify-center align-middle'>
         <Header />
-        <div className='w-11/12 mx-auto mt-32 md:-mt-12 flex-col lg:flex-row lg:flex lg:space-x-12'>
+        <div className='w-11/12 mx-auto md:-mt-12 flex-col lg:flex-row lg:flex lg:space-x-12'>
             <div className='lg:w-10/12 my-auto'>
                 <div className='text-gray-600 mx-10 md:mx-0 font-poppins opacity-40 font-bold text-[80px] md:text-[150px]'>TEAM</div>
                 <div className='mx-10 md:mx-0 -mt-5 '>

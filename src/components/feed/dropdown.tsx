@@ -39,7 +39,7 @@ function DropdownMenu(){
 
   return (
     <div className='absolute text-slate-800 mt-16 w-48 bg-white shadow-lg -translate-x-16 rounded-lg
-      overflow-hidden p-1'>
+      overflow-hidden p-1 z-50'>
         <DropdownItem>
           <li 
             onClick={() => navigate('/dashboard')}

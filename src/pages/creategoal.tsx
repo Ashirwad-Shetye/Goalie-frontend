@@ -56,7 +56,7 @@ function CreateGoal() {
 
   return (
     <div className='bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    min-h-fit min-w-fit h md:h-screen md:w-auto'>
+    min-h-screen min-w-screen max-h-fit max-w-screen'>
         <Header />
         <div className='mx-12 text-center md:text-left md:ml-28 mt-40 md:mt-10 md:w-3/5 lg:w-2/5'>
             <div

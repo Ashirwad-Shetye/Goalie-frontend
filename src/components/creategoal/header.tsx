@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router';
 import Dropdown from './dropdown';
 import Avatar from '../../common/userAvatar'
 
-
 function Header() {
 
     const navigate = useNavigate();
