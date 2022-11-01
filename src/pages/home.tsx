@@ -23,13 +23,9 @@ function Home() {
               font-lato font-semibold rounded-full shadow-goalBtn hover:bg-transparent 
               hover:text-orange-500 border-2 border-orange-500 duration-200 hover:shadow-none'
           >Create goal</button>
-        </div>
-                
+        </div>                
     </div>
   )
 }
 
 export default Home
-
-// className='w-96 mx-auto mt-72 
-//             md:w-1/2 lg:w-1/3 md:mt-72 lg:mt-0'
