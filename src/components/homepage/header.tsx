@@ -7,10 +7,10 @@ function Header() {
   const navigate = useNavigate();
 
   return (
-    <nav className="container relative mx-auto flex h-24 z-20 items-center">
-      <div className="top-8 w-32 ml-2 lg:left-4 cursor-pointer">
+    <nav className="container relative mx-auto flex h-28 z-20 items-center">
+      <section className="top-8 w-36 lg:left-4 cursor-pointer">
         <img src={logo} alt="goalie logo" />
-      </div>
+      </section>
       <section className="absolute right-6 md:space-x-8 lg:space-x-12 flex items-center">
         <div className="justify-center">
           <ul
