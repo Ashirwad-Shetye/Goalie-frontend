@@ -53,38 +53,38 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
+            {/* <Route
               path="/dashboard"
               element={
                 <Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}>
                   <Dashboard />
                 </Protected>
               }
-            />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            <Route
+            /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route
               path="/feed"
               element={
                 <Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}>
                   <Feed />
                 </Protected>
               }
-            />
-            {/* <Route path="/feed" element={<Feed />} /> */}
+            /> */}
+            <Route path="/feed" element={<Feed />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/login" element={<Login {...loginProps} />} />
             <Route path="/logout" element={<Logout {...logoutProps} />} />
 
-            {/* <Route path="/creategoal" element={<CreateGoal />} /> */}
-            <Route
+            <Route path="/creategoal" element={<CreateGoal />} />
+            {/* <Route
               path="/creategoal"
               element={
                 <Protected fallBackRoute="/login" isLoggedIn={isLoggedIn}>
                   <CreateGoal />
                 </Protected>
               }
-            />
+            /> */}
             <Route path="/error" element={<ErrorGeneral />} />
             <Route path="/error_404" element={<Error404 />} />
           </Routes>
