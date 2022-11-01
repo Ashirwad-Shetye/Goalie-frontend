@@ -1,7 +1,8 @@
 import React from "react";
-import Header from "../components/homepage/header";
+import Header from "../common/header";
 import quote from "../styles/assets/svg/quote.svg";
 import { useNavigate } from "react-router-dom";
+import Navs from "../components/homepage/navs";
 
 function Home() {
   const navigate = useNavigate();
@@ -9,7 +10,9 @@ function Home() {
   return (
     <div className="bg-home bg-no-repeat bg-cover bg-fixed min-h-screen min-w-screen max-h-fit max-w-screen">
       <main className="min-w-screen h-screen relative max-w-[1200px] mx-auto">
-        <Header />
+        <Header>
+          <Navs />
+        </Header>
         <div className="my-auto text-center h-5/6 mx-auto space-y-10 flex flex-col justify-center align-middle">
           <img
             src={quote}
