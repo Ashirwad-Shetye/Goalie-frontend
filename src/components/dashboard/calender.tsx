@@ -1,5 +1,5 @@
-import React from 'react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import React from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { useEffect, useRef, useState } from "react";
 
 export interface CalendarProps {}
@@ -31,9 +31,9 @@ const Calendar: React.FC<CalendarProps> = () => {
   }, [activeMonth]);
 
   return (
-    <div className="mt-5 p-2 mx-2">
+    <div className="">
       {/* <h1 className="text-3xl font-lato font-bold text-orange-500">Calender</h1> */}
-      <div className="w-full bg-white shadow-xl rounded-2xl">
+      <div className="w-full relative bg-white shadow-xl rounded-2xl">
         <div className="flex items-center justify-between my-4">
           <div className="text-left ml-8 font-bold text-xl text-slate-700 dark:text-white">
             {`${activeMonthString} ${activeYear}`}
@@ -69,8 +69,8 @@ const Calendar: React.FC<CalendarProps> = () => {
             </button>
           </div>
         </div>
-        <div className="mx-4">
-          <table className="w-full dark:text-white">
+        <div className="mx-4 bg-red-100">
+          <table className="w-full">
             <thead>
               <tr>
                 <th className="py-2 px-5 ">S</th>
@@ -83,7 +83,7 @@ const Calendar: React.FC<CalendarProps> = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr className="bg-red-300">
                 <CalendarRow
                   firstDay={firstDayInMonth[activeMonth]}
                   lastDayInMonth={new Date(
@@ -195,7 +195,7 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
       content.push(<td></td>);
     }
     content.push(
-      <td className="relative py-4 px-3 md:px-  hover:text-blue-500 text-center text-gray-800">
+      <td className="relative py-2 px-3  hover:text-blue-500 text-center text-gray-800">
         1
       </td>
     );
@@ -206,13 +206,13 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
           {activeDay === i + 1 &&
           new Date().getMonth() === currentMonth &&
           new Date().getFullYear() === currentYear ? (
-            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
-              <span className="p-1 text-white rounded-full bg-orange-500">
+            <td className="py-2 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
+              <span className="p-2 px-4 text-white rounded-full bg-orange-500">
                 {i + 1}
               </span>
             </td>
           ) : (
-            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
+            <td className="py-2 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
               {i + 1}
             </td>
           )}
@@ -236,7 +236,7 @@ const CalendarRow: React.FC<CalendarRowProps> = ({
               </span>
             </td>
           ) : (
-            <td className="relative py-4 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
+            <td className="relative bg-red-300 py-3 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
               {i + (7 * row - firstDay)}
             </td>
           )}

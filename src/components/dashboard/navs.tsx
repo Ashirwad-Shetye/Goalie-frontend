@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../styles/assets/logo/logo.png";
 import { useNavigate } from "react-router-dom";
 import MainAvatar from "../../common/userAvatar";
 import Dropdown from "./dropdown";

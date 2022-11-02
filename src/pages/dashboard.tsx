@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../common/header";
-import Calender from "../components/dashboard/calender";
+// import Calender from "../components/dashboard/calender";
+import Calender2 from "../components/dashboard/calender2";
 import GoalStatus from "../components/dashboard/goalStatus";
 import TimelineCard from "../components/dashboard/timeline";
 import UserData from "../components/dashboard/userData";
@@ -10,22 +11,23 @@ import Navs from "../components/dashboard/navs";
 function Dashboard() {
   return (
     <div
-      className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-     justify-center align-middle min-h-screen min-w-screen max-h-fit max-w-screen"
+      //   className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed
+      //  justify-center align-middle min-h-screen min-w-screen max-h-fit max-w-screen"
+      className="bg-dashboard bg-no-repeat bg-cover bg-right bg-fixed min-h-screen min-w-screen max-h-fit max-w-screen overscroll-y-contain"
     >
-      <main className="max-w-[1200px] min-w-screen m-auto">
+      <main className="max-w-[1200px] min-w-screen h-screen m-auto">
         <Header>
           <Navs />
         </Header>
-        <div className="container mt-48 md:mt-0 w-10/12 mx-auto justify-center align-middle lg:mx-auto lg:flex lg:space-x-10">
-          <div className="invisible absolute lg:relative lg:visible w-[400px]">
+        <div className="container md:mt-0 w-10/12 mx-auto flex-1 justify-center align-middle my-auto lg:flex lg:space-x-10">
+          <section className="hidden mt-10 w-[400px] lg:w-5/12 lg:flex flex-col space-y-3 justify-center items-center">
             <GoalStatus />
-            <Calender />
-          </div>
-          <div className="container -mt-10 md:mt-0 justify-center align-middle max-w-3xl h-[545px] lg:rounded-2xl">
+            <Calender2 />
+          </section>
+          <section className="relative mt-10 flex flex-col space-y-4 justify-center items-center lg:w-8/12 max-w-full h-[545px] lg:rounded-2xl">
             <UserData />
             <TimelineCard />
-          </div>
+          </section>
         </div>
         <CreateGoalButton />
       </main>
