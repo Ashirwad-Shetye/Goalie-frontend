@@ -53,7 +53,7 @@ function TimelineCard() {
                 <Timeline.Point />
                 <Timeline.Content>
                   <Timeline.Time>
-                    <div className="text-lg fon text-slate-600">
+                    <div className="text-lg font-lato text-slate-600">
                       {new Date(goal.lastDate).getDate()}{" "}
                       {month[new Date(goal.lastDate).getMonth()]}{" "}
                       {new Date(goal.lastDate).getFullYear()}
