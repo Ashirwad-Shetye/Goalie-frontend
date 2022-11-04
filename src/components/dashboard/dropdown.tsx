@@ -12,7 +12,7 @@ interface ItemProps {
 
 function Dropdown() {
   return (
-    <div className="md:hidden bg-red-200">
+    <div className="md:hidden">
       <Menu>
         <MenuItem icon={<AiOutlineMenu />}>
           <DropdownMenu />

@@ -11,11 +11,10 @@ import Navs from "../components/dashboard/navs";
 function Dashboard() {
   return (
     <div
-      //   className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed
-      //  justify-center align-middle min-h-screen min-w-screen max-h-fit max-w-screen"
-      className="bg-dashboard bg-no-repeat bg-cover bg-right bg-fixed min-h-screen min-w-screen max-h-fit max-w-screen overscroll-y-contain"
+      className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
+    min-h-screen min-w-screen max-h-fit max-w-screen"
     >
-      <main className="max-w-[1200px] min-w-screen h-screen m-auto">
+      <main className="max-w-[1200px] min-w-screen m-auto">
         <Header>
           <Navs />
         </Header>
