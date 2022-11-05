@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import avatar from "../../avatar.json";
+import { useDispatch } from "react-redux";
+import { setAvatarId } from "../../store/slices/avatarSlice";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 
 function ImageSlider() {
@@ -8,12 +10,20 @@ function ImageSlider() {
 
   const length = avatar.length;
 
+  const dispatch = useDispatch();
+
   const nextSlide = () => {
     setCurrent(current === length - 1 ? 0 : current + 1);
+    const avatarId = document.getElementsByTagName("img")[1].getAttribute("id");
+    // dispatch(avatarId);
+    console.log(avatarId);
+    if (avatarId) localStorage.setItem("avatarID", avatarId);
+    console.log(document.getElementsByTagName("img")[1].getAttribute("id"));
   };
 
   const prevSlide = () => {
     setCurrent(current === 0 ? length - 1 : current - 1);
+    dispatch(setAvatarId(current));
   };
 
   if (!Array.isArray(avatar) || avatar.length <= 0) {
@@ -49,6 +59,7 @@ function ImageSlider() {
             >
               {index === current && (
                 <img
+                  id={avatar.id}
                   src={avatar.icon}
                   alt="avatar slider"
                   className="w-28 h-28 rounded-full mx-auto"

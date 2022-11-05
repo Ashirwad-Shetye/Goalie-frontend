@@ -34,7 +34,9 @@ function GoalStatus() {
               Pending
             </div>
             <div className="text-5xl lg:text-5xl text-slate-600 pt-2 font-lato font-bold">
-              {goalData.pendingGoals.length}
+              {Array.isArray(goalData.pendingGoals)
+                ? goalData.pendingGoals.length
+                : 0}
             </div>
           </section>
           <section className="w-28 h-28 lg:w-40 lg:h-fit pl-12 pr-4 text-center flex-col cursor-default">
@@ -45,7 +47,9 @@ function GoalStatus() {
               Completed
             </div>
             <div className="text-5xl lg:text-5xl text-slate-600 pt-2 font-lato font-bold">
-              {goalData.finishedGoals.length}
+              {Array.isArray(goalData.finishedGoals)
+                ? goalData.finishedGoals.length
+                : 0}
             </div>
           </section>
         </div>

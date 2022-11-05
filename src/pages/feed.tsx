@@ -1,5 +1,5 @@
 import React from "react";
-import PostCreate from "../common/postCreateButton";
+import PostCreate from "../common/postCreateButton2";
 import Header from "../common/header";
 import PostCard from "../components/feed/postCard";
 import UsersList from "../components/feed/usersList";
@@ -11,13 +11,13 @@ function Feed() {
       className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
     min-h-screen min-w-screen max-h-fit max-w-screen"
     >
-      <main className="max-w-[1200px] min-w-screen mx-auto">
+      <main className="max-w-[1200px] min-w-screen mx-auto relative">
         <Header>
           <Navs />
         </Header>
         <PostCreate />
         <div
-          className="container relative top-8 md:flex w-fit mx-auto h-[540px] justify-center
+          className="container relative top-8 md:flex justify-center items-center w-full mx-auto h-[540px]
        content-center grid md:grid-rows-1 space-y-2 md:space-y-0 md:space-x-5 lg:space-x-10"
         >
           <UsersList />

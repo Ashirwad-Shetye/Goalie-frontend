@@ -38,7 +38,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div>
+    <div className="">
       {isLoading ? (
         <div className="grid h-screen place-items-center">
           <div className="grid place-items-center">

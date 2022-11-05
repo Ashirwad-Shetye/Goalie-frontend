@@ -29,7 +29,9 @@ function TimelineCard() {
     getUsersAllGoals()
       .then((response) => {
         console.log(response);
-        setGoals([...response.data]);
+        if (Array.isArray(response.data)) {
+          setGoals([...response.data]);
+        }
       })
       .catch((error) => {
         console.log(error);

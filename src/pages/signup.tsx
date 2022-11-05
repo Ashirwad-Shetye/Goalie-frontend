@@ -52,6 +52,7 @@ function Signup() {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    console.log("logged");
 
     setIsButtonLoading(true);
 
@@ -61,15 +62,26 @@ function Signup() {
     } else if (password.length === 0) {
       toast.error("Password is required");
       setIsButtonLoading(false);
-    } else if (Error()) {
-      setIsButtonLoading(false);
     } else {
       const userData = {
         name,
         email,
         password,
+        avatarID: localStorage.getItem("avatarID") || 1,
       };
-      register(userData);
+      console.log(userData);
+      register(userData)
+        .then((response) => {
+          toast.success("User Registered Successfully");
+          setIsButtonLoading(false);
+          navigate("/dashboard");
+          localStorage.clear();
+        })
+        .catch((error) => {
+          toast.error(error.message);
+          setIsButtonLoading(false);
+          localStorage.clear();
+        });
     }
   };
 
@@ -150,6 +162,7 @@ function Signup() {
             {isButtonLoading ? (
               <button
                 type="submit"
+                // onClick={onSubmit}
                 className="text-xl my-4 font-lato bg-orange-400 h-12 w-28 cursor-default 
                              py-1.5 px-4 rounded-2xl border-orange-400 duration-200 border-2"
               >
@@ -167,6 +180,7 @@ function Signup() {
             ) : (
               <button
                 type="submit"
+                // onClick={onSubmit}
                 className="text-xl my-4 font-lato bg-orange-500 h-12 w-28 
                             text-white font-bold py-1.5 px-4 rounded-2xl hover:bg-transparent 
                             hover:text-orange-500 border-orange-500 duration-200 border-2 hover:shadow-none"
