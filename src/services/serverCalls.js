@@ -5,6 +5,9 @@ import {
   getUserGoalData,
   getMyInfo,
   getUserGoals,
+  createNewPost,
+  getAllPosts,
+  updateLikePost,
 } from "./apiCalls";
 import { setAuthHeadersAfterLogin } from "./base";
 import { saveAuthDataToDevice } from "./storage";
@@ -32,12 +35,10 @@ export const register = (params) => {
 export const setGoal = (params, navigate) => {
   userSetGoal(params)
     .then((response) => {
-      console.log(response);
       navigate("/dashboard");
       toast.success("Goal Added Successfully");
     })
     .catch((error) => {
-      console.log(error);
       toast.error("Someting went wrong");
     });
 };
@@ -52,4 +53,32 @@ export const getUserInfo = () => {
 
 export const getUsersAllGoals = () => {
   return getUserGoals();
+};
+
+export const setNewPost = (params) => {
+  createNewPost(params)
+    .then((response) => {
+      console.log(response);
+      toast.success("Post created succesfully");
+    })
+    .catch((error) => {
+      console.log(error);
+      toast.error("Something went wrong");
+    });
+};
+
+export const getAllPostsList = () => {
+  return getAllPosts();
+};
+
+export const likePost = () => {
+  updateLikePost()
+    .then((response) => {
+      console.log(response);
+      toast.success("Post liked");
+    })
+    .catch((error) => {
+      console.log(error);
+      toast.error("something went wrong");
+    });
 };
