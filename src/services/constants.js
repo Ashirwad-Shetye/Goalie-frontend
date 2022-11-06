@@ -1,4 +1,4 @@
-export const DEFAULT_URL = process.env.API_URL || "http://localhost:5000";
+export const DEFAULT_URL = "https://goalie-backend.herokuapp.com/";
 
 export const authHeaderKeys = ["platform", "Authorization"];
 
