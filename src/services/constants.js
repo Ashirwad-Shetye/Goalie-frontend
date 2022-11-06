@@ -14,7 +14,7 @@ export const GET_MY_INFO = "/api/users/me";
 
 export const GET_USER_GOALS = "/api/goals/";
 
-export const SET_NEW_POSTS = "/api/posts";
+export const SET_NEW_POST = "/api/posts";
 
 export const GET_ALL_POSTS = "/api/posts";
 
