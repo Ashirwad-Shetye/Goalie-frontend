@@ -1,4 +1,5 @@
 import axios from "axios";
+import { userNavigate } from 'react-router-dom';
 import isEmpty from "lodash/isEmpty";
 import { getItemFromStorage } from "./storage";
 import { DEFAULT_URL, authHeaderKeys } from "./constants";
@@ -45,6 +46,9 @@ export const basicInstance = axios.create();
 const handleErrors = (store = null, error) => {
   console.log(error);
   if (process.env.NODE_ENV === "development") {
+    const navigate=useNavigate()
+    navigate('/error')
+    
     // console.log("Error Logging :: ", error.message, JSON.stringify(error))
   }
   if (error.message) {
