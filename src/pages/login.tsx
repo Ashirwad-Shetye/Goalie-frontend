@@ -46,9 +46,7 @@ function Login(props: any) {
       toast.error("Please enter password");
       //   setIsButtonLoading(false);
     }
-    else{
     login({ email, password }, navigate, props.setIsLoggedIn);
-    }
   };
 
   return (
