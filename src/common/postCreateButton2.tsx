@@ -4,11 +4,23 @@ import { BsFilePost } from "react-icons/bs";
 import PostFormModal from "../components/feed/postFormModal";
 import { GrFormClose } from "react-icons/gr";
 import imageUpload from "../styles/assets/placeholders/imgUpload.png";
+import { ThreeDots } from "react-loader-spinner";
+import { toast } from "react-toastify";
+import { setNewPost } from "../services/serverCalls";
 
 function PostCreate() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [img, setImg] = useState<File>();
+  const [formData, setFormData] = useState({
+    uploadedImage: "",
+    description: "",
+  });
+
+  const { uploadedImage, description } = formData;
+
+  // const [img, setImg] = useState<File>();
+
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const textRef = useRef<any>();
 
@@ -20,15 +32,24 @@ function PostCreate() {
     textRef.current.style.height = `${target.scrollHeight}px`;
   };
 
-  // const imageHandler = (e: React.SyntheticEvent<EventTarget>) => {
-  //   const reader = new FileReader();
-  //   reader.onload = () => {
-  //     if (reader.readyState === 2) {
-  //       imgRef.current.src = reader.result;
-  //     }
-  //   };
-  //   reader.readAsDataURL(e.target.files[0]);
-  // };
+  const onSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+
+    setIsButtonLoading(true);
+
+    if (uploadedImage === "" || description === "") {
+      toast.error("Please enter atleast one field to upload");
+      setIsButtonLoading(false);
+    } else {
+      const postData = {
+        desc: formData.description,
+        img: formData.uploadedImage,
+      };
+      console.log(postData);
+      setNewPost(postData);
+      setIsOpen(false);
+    }
+  };
 
   return (
     <div
@@ -51,79 +72,95 @@ function PostCreate() {
         </button>
       </div>
       <PostFormModal open={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="flex justify-start h-12 items-center border-b-2">
-          <h1
-            className="text-2xl mx-auto h-fit text-center font-lato text-gray-700 font-semibold
+        <form onSubmit={onSubmit}>
+          <div className="flex justify-start h-12 items-center border-b-2">
+            <h1
+              className="text-2xl mx-auto h-fit text-center font-lato text-gray-700 font-semibold
                  absolute left-6"
-          >
-            Create Post
-          </h1>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="text-3xl absolute right-0 flex justify-center items-center mr-2 hover:bg-orange-500/30 w-10 h-10 rounded-full"
-          >
-            <GrFormClose />
-          </button>
-        </div>
-        <div className="w-10/12 mx-auto flex flex-col">
-          <label className="text-xl font-lato font-semibold my-4">
-            Upload your photo
-          </label>
-          <img
-            src={imageUpload}
-            alt="upload photos here"
-            className="w-40 max-w-xl object-cover object-center mx-auto mb-5"
-          />
-          {/* <input
-            type="file"
-            name="upload"
-            id="input"
-            accept="image/*"
-            className="bg-red-200 w-40 mx-auto object-none"
-          /> */}
-          <button
-            onClick={(event) => {
-              event.preventDefault();
-              imgRef.current.click();
-            }}
-            className="w-fit h-10 text-lg px-3 mx-auto rounded-full bg-gray-400"
-          >
-            Upload Image
-          </button>
-          {/* <input
-            type="file"
-            className="hidden"
-            ref={imgRef}
-            onChange={(event) => {
-              const file = event.target.files[0];
-              if (file) {
-                setImg(file);
-              } else {
-                setImg(null);
-              }
-            }}
-          /> */}
-        </div>
-        <div className="w-10/12 mx-auto flex flex-col">
-          <label className="text-xl font-lato font-semibold my-4">
-            Description
-          </label>
-          <textarea
-            maxLength={280}
-            name="description"
-            ref={textRef}
-            onChange={onChangeHandler}
-            className="rounded-3xl scrollbar-hide focus:ring-2 resize-none focus:border-white  focus:ring-orange-500"
-          />
-        </div>
-        <div className="my-2 py-5 text-center">
-          <button
-            className="rounded-full mx-auto h-10 px-4 w-24 bg-orange-500 text-white text-2xl hover:bg-white hover:text-orange-500
+            >
+              Create Post
+            </h1>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-3xl absolute right-0 flex justify-center items-center mr-2 hover:bg-orange-500/30 w-10 h-10 rounded-full"
+            >
+              <GrFormClose />
+            </button>
+          </div>
+          <div className="w-10/12 mx-auto flex flex-col">
+            <label className="text-xl font-lato font-semibold my-4">
+              Upload your photo
+            </label>
+            <img
+              src={imageUpload}
+              alt="upload photos here"
+              className="w-40 max-w-xl object-cover object-center mx-auto mb-5"
+            />
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+                imgRef.current.click();
+              }}
+              className="w-fit h-10 text-lg px-3 mx-auto rounded-full bg-gray-400"
+            >
+              Upload Image
+            </button>
+            <input
+              type="file"
+              className="hidden"
+              ref={imgRef}
+              value={uploadedImage}
+              accept="image/*"
+              // onChange={(event) => {
+              //   const file = event.target.files[0];
+              //   if (file) {
+              //     setImg(file);
+              //   } else {
+              //     setImg(null);
+              //   }
+              // }}
+            />
+          </div>
+          <div className="w-10/12 mx-auto flex flex-col">
+            <label className="text-xl font-lato font-semibold my-4">
+              Description
+            </label>
+            <textarea
+              maxLength={280}
+              name="description"
+              ref={textRef}
+              value={description}
+              onChange={onChangeHandler}
+              className="rounded-3xl scrollbar-hide focus:ring-2 resize-none focus:border-white  focus:ring-orange-500"
+            />
+          </div>
+          <div className="my-2 py-5 text-center">
+            {isButtonLoading ? (
+              <button
+                type="submit"
+                className="rounded-full mx-auto h-10 px-4 w-24 bg-orange-500 text-white text-2xl
                         hover:border-orange-500 hover:border-2"
-          >
-            Post
-          </button>
-        </div>
+              >
+                <ThreeDots
+                  height="15"
+                  width="70"
+                  radius="3"
+                  color="#ffffff"
+                  ariaLabel="three-dots-loading"
+                  visible={true}
+                />
+              </button>
+            ) : (
+              <button
+                type="submit"
+                className="rounded-full mx-auto h-10 px-4 w-24 bg-orange-500 text-white text-2xl hover:bg-white hover:text-orange-500
+                        hover:border-orange-500 hover:border-2"
+              >
+                Post
+              </button>
+            )}
+          </div>
+        </form>
       </PostFormModal>
     </div>
   );
