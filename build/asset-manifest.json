@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f7c7e657.css",
+    "main.js": "/static/js/main.133ba56a.js",
+    "static/js/787.fa7c2019.chunk.js": "/static/js/787.fa7c2019.chunk.js",
+    "static/media/pulse.gif": "/static/media/pulse.ba31721711eb235a2113.gif",
+    "static/media/dev1.jpeg": "/static/media/dev1.f0e9820bcfa6a959bc84.jpeg",
+    "static/media/signup.png": "/static/media/signup.30871608ac3baab48b3c.png",
+    "static/media/home.png": "/static/media/home.c4227b8d215f300c2930.png",
+    "static/media/post1.jpg": "/static/media/post1.e7eba87269816eef0f52.jpg",
+    "static/media/page.png": "/static/media/page.2b08dc2736bb6948118d.png",
+    "static/media/error.png": "/static/media/error.5d37d94a634ba1b915f4.png",
+    "static/media/quote.svg": "/static/media/quote.0a2c43a43cf963a9f22da7a5fc73a00c.svg",
+    "static/media/avatar_10.png": "/static/media/avatar_10.52ffb7161f6819309737.png",
+    "static/media/avatar_4.png": "/static/media/avatar_4.b0c33ad09c98a01861cb.png",
+    "static/media/dev2.jpeg": "/static/media/dev2.05e1c59c81b5f20bae17.jpeg",
+    "static/media/avatar_5.png": "/static/media/avatar_5.444f169d6d25d1c708fe.png",
+    "static/media/error404.png": "/static/media/error404.09f8f61a59f7e3cc07a4.png",
+    "static/media/avatar_14.png": "/static/media/avatar_14.d60a06bb53afcb4bb6ac.png",
+    "static/media/avatar_12.png": "/static/media/avatar_12.e0e9c3a44c4e65f57f3b.png",
+    "static/media/avatar_7.png": "/static/media/avatar_7.30b1c3ab4f4fd51c12ca.png",
+    "static/media/avatar_24.png": "/static/media/avatar_24.f674d5dd852b58cef978.png",
+    "static/media/avatar_16.png": "/static/media/avatar_16.a3abf34b5f2379cafaac.png",
+    "static/media/avatar_9.png": "/static/media/avatar_9.6f4b57ec737e1ec9c440.png",
+    "static/media/avatar_8.png": "/static/media/avatar_8.0206036ca1a37c4d2f5c.png",
+    "static/media/avatar_13.png": "/static/media/avatar_13.cf576a89b4e2fd16ee42.png",
+    "static/media/logo.png": "/static/media/logo.2448d95e021e90741305.png",
+    "index.html": "/index.html",
+    "main.f7c7e657.css.map": "/static/css/main.f7c7e657.css.map",
+    "main.133ba56a.js.map": "/static/js/main.133ba56a.js.map",
+    "787.fa7c2019.chunk.js.map": "/static/js/787.fa7c2019.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f7c7e657.css",
+    "static/js/main.133ba56a.js"
+  ]
+}
