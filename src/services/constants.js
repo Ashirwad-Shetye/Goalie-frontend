@@ -1,4 +1,4 @@
-export const DEFAULT_URL = "https://goalie-backend.herokuapp.com/";
+export const DEFAULT_URL = "https://easy-pear-buffalo-tutu.cyclic.app/";
 
 export const authHeaderKeys = ["platform", "Authorization"];
 
