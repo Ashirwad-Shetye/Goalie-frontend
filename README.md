@@ -34,6 +34,8 @@ Main motive behind Goalie is to create a social accountability to help user comp
 
 We have used MERN stack along with few modern and new technologies for better efficiency and making the web app fairly future-proof for upcoming years. This has helped us build an easily scalable web application.
 
+- [React Js](https://reactjs.org/)
+- [ReactRouter](https://reactrouter.com/en/main)
 - [Redux toolkit](https://redux-toolkit.js.org/)
 - [Axios](https://axios-http.com/docs/intro)
 - [Tailwind](https://tailwindcss.com/)
