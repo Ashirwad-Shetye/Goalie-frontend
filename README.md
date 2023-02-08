@@ -1,5 +1,7 @@
 # Goalie
 
+![image](https://user-images.githubusercontent.com/99337222/217624228-14f258c8-8268-4623-8a4e-2e6fff3cd54e.png)
+
 Goalie is a minimal goal management platform which enables users to create and manage goals. It includes community portal to share current and completed goals with other users.
 <br/>
 Main motive behind Goalie is to create a social accountability to help user complete goals without any procastinations.
