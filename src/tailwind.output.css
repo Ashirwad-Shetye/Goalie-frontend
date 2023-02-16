@@ -2483,11 +2483,6 @@ input:checked + .toggle-bg {
   background-color: rgb(156 163 175 / 0.4);
 }
 
-.bg-red-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 213 213 / var(--tw-bg-opacity));
-}
-
 .bg-gray-400 {
   --tw-bg-opacity: 1;
   background-color: rgb(156 163 175 / var(--tw-bg-opacity));
@@ -2945,10 +2940,6 @@ input:checked + .toggle-bg {
 
 .object-cover {
   object-fit: cover;
-}
-
-.object-none {
-  object-fit: none;
 }
 
 .object-center {
