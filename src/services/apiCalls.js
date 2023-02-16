@@ -27,8 +27,8 @@ export const getUserGoalData = () => {
   return axios.get(GET_GOALS_DATA);
 };
 
-export const getMyInfo = () => {
-  return axios.get(GET_MY_INFO);
+export const getMyInfo = (params) => {
+  return axios.get(GET_MY_INFO, params);
 };
 
 export const getUserGoals = () => {

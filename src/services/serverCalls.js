@@ -47,8 +47,8 @@ export const getGoalData = () => {
   return getUserGoalData();
 };
 
-export const getUserInfo = () => {
-  return getMyInfo();
+export const getUserInfo = (params) => {
+  return getMyInfo(params);
 };
 
 export const getUsersAllGoals = () => {
