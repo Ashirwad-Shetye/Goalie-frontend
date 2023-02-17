@@ -1,248 +1,166 @@
 import React from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/solid";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import clsx from "clsx";
+import {
+  add,
+  differenceInDays,
+  endOfMonth,
+  format,
+  setDate,
+  startOfMonth,
+  sub,
+} from "date-fns";
+import {
+  BiChevronLeft,
+  BiChevronRight,
+  BiChevronsLeft,
+  BiChevronsRight,
+} from "react-icons/bi";
 
-export interface CalendarProps {}
+interface buttonProps extends React.PropsWithChildren {
+  onClick?: () => void;
+  className?: string;
+}
 
-const Calendar: React.FC<CalendarProps> = () => {
-  const [activeMonth, setActiveMonth] = useState(new Date().getMonth());
-  const [activeMonthString, setActiveMonthString] = useState(
-    new Date().toDateString().split(" ")[1]
-  );
-  const [activeYear, setActiveYear] = useState(new Date().getFullYear());
-  const prevMonth = useRef<number>(null);
-  const [firstDayInMonth, setFirstDayInMonth] = useState<number[]>([]);
+type calenderProps = {
+  value?: Date;
+  onChange: (date: Date) => void;
+};
 
-  useEffect(() => {
-    let x = [];
-    for (let i = 1; i <= 12; i++) {
-      x.push(new Date(`${activeYear}/${i}/1`).getDay());
-    }
-    setFirstDayInMonth(x);
-  }, [activeYear]);
+export default function CalenderSection() {
+  const [currentDate, setCurrentDate] = useState(new Date());
 
-  useEffect(() => {
-    setActiveMonthString(
-      new Date(new Date().setMonth(activeMonth)).toDateString().split(" ")[1]
-    );
-    //remember previous activeMonth
-    //@ts-ignore
-    prevMonth.current = activeMonth;
-  }, [activeMonth]);
+  const handleSetToday = () => setCurrentDate(new Date());
+
+  // const selectedDate = format(currentDate, "dd LLLL yyyy");
 
   return (
-    <div className="">
-      {/* <h1 className="text-3xl font-lato font-bold text-orange-500">Calender</h1> */}
-      <div className="w-full relative bg-white shadow-xl rounded-2xl">
-        <div className="flex items-center justify-between my-4">
-          <div className="text-left ml-8 font-bold text-xl text-slate-700 dark:text-white">
-            {`${activeMonthString} ${activeYear}`}
+    <div className="flex relative row-span-3 flex-col rounded-2xl shadow-xl bg-white w-11/12">
+      <div className="relative flex py-2 items-center">
+        <h1 className="font-medium text-2xl ml-5 text-gray-500">Calender</h1>
+        <Button onClick={handleSetToday}>Today</Button>
+      </div>
+      <Calendar value={currentDate} onChange={setCurrentDate} />
+    </div>
+  );
+}
+
+const Button: React.FC<buttonProps> = ({ onClick, className, children }) => (
+  <button
+    onClick={onClick}
+    className={clsx(
+      "text-gray-600 font-poppins text-md bg-orange-500 bg-opacity-25 hover:bg-opacity-100 hover:text-white active:bg-orange-600 px-2 py-0.5 rounded-lg absolute right-5",
+      className
+    )}
+  >
+    {children}
+  </button>
+);
+
+const weeks = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+const Calendar: React.FC<calenderProps> = ({
+  value = new Date(),
+  onChange,
+}) => {
+  const startDate = startOfMonth(value);
+  const endDate = endOfMonth(value);
+  const numDays = differenceInDays(endDate, startDate) + 1;
+
+  const prefixDays = startDate.getDay();
+  const suffixDays = 6 - endDate.getDay();
+
+  const prevMonth = () => onChange(sub(value, { months: 1 }));
+  const nextMonth = () => onChange(add(value, { months: 1 }));
+  const prevYear = () => onChange(sub(value, { years: 1 }));
+  const nextYear = () => onChange(add(value, { years: 1 }));
+
+  const handleClickDate = (index: number) => {
+    const date = setDate(value, index);
+    onChange(date);
+  };
+
+  return (
+    <div className="w-full px-2 ">
+      <div className="grid grid-cols-7 items-center justify-center">
+        <Cell className="col-span-4 ml-2 text-xl text-gray-500 justify-self-start">
+          {format(value, "LLLL yyyy")}
+        </Cell>
+        <Cell className="col-span-3 flex mr-2 text-3xl text-gray-600 justify-self-end">
+          <div onClick={prevYear} className="">
+            <BiChevronsLeft className="hover:scale-105 rounded-full hover:bg-gray-200" />
           </div>
-          <div className="flex space-x-4">
-            <button
-              className="p-2 rounded text-gray-400 hover:text-orange-500 duration-200"
-              onClick={() => {
-                if (prevMonth.current === 0) {
-                  setActiveYear(activeYear - 1);
-                  setActiveMonth(11);
-                } else {
-                  setActiveMonth(activeMonth - 1);
-                }
-              }}
-            >
-              <span className="sr-only">Previous month</span>
-              <ChevronLeftIcon className="w-6 h-6" aria-hidden="true" />
-            </button>
-            <button
-              className="p-2 rounded text-gray-400 hover:text-orange-500 duration-200"
-              onClick={() => {
-                if (prevMonth.current === 11) {
-                  setActiveYear(activeYear + 1);
-                  setActiveMonth(0);
-                } else {
-                  setActiveMonth(activeMonth + 1);
-                }
-              }}
-            >
-              <span className="sr-only">Next month</span>
-              <ChevronRightIcon className="w-6 h-6" aria-hidden="true" />
-            </button>
+          <div onClick={prevMonth} className="">
+            <BiChevronLeft className="hover:scale-105 rounded-full hover:bg-gray-200" />
           </div>
-        </div>
-        <div className="mx-4 bg-red-100">
-          <table className="w-full">
-            <thead>
-              <tr>
-                <th className="py-2 px-5 ">S</th>
-                <th className="py-2 px-5 ">M</th>
-                <th className="py-2 px-5 ">T</th>
-                <th className="py-2 px-5 ">W</th>
-                <th className="py-2 px-5 ">T</th>
-                <th className="py-2 px-5 ">F</th>
-                <th className="py-2 px-5 ">S</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="bg-red-300">
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={0}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-              <tr>
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={1}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-              <tr>
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={2}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-              <tr>
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={3}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-              <tr>
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={4}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-              <tr>
-                <CalendarRow
-                  firstDay={firstDayInMonth[activeMonth]}
-                  lastDayInMonth={new Date(
-                    activeYear,
-                    activeMonth + 1,
-                    0
-                  ).getDate()}
-                  row={5}
-                  currentMonth={activeMonth}
-                  currentYear={activeYear}
-                />
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div onClick={nextMonth}>
+            <BiChevronRight className="hover:scale-105 rounded-full hover:bg-gray-200" />
+          </div>
+          <div onClick={nextYear}>
+            <BiChevronsRight className=" hover:scale-105 rounded-full hover:bg-gray-200" />
+          </div>
+        </Cell>
+
+        {weeks.map((week) => (
+          <Cell className="text-md text-orange-500 font-bold uppercase">
+            {week}
+          </Cell>
+        ))}
+
+        {Array.from({ length: prefixDays }).map((_, index) => (
+          <Cell key={index} />
+        ))}
+
+        {Array.from({ length: numDays }).map((_, index) => {
+          const date = index + 1;
+          const isCurrentDate = date === value.getDate();
+
+          return (
+            <Cell
+              key={date}
+              isActive={isCurrentDate}
+              onClick={() => handleClickDate(date)}
+            >
+              {date}
+            </Cell>
+          );
+        })}
+
+        {Array.from({ length: suffixDays }).map((_, index) => (
+          <Cell key={index} />
+        ))}
       </div>
     </div>
   );
 };
 
-export default Calendar;
-
-export interface CalendarRowProps {
-  firstDay: number;
-  lastDayInMonth: number;
-  row: number;
-  currentMonth: number;
-  currentYear: number;
+interface cellProps extends React.PropsWithChildren {
+  className?: string;
+  isActive?: boolean;
+  onClick?: () => void;
 }
 
-const CalendarRow: React.FC<CalendarRowProps> = ({
-  firstDay,
-  lastDayInMonth,
-  row,
-  currentMonth,
-  currentYear,
+const Cell: React.FC<cellProps> = ({
+  onClick,
+  children,
+  className,
+  isActive = false,
 }) => {
-  const activeDay = useState(new Date().getDate())[0];
-
-  let content = [];
-  //first row with empty spaces
-  if (!row) {
-    for (let i = 0; i < firstDay; i++) {
-      content.push(<td></td>);
-    }
-    content.push(
-      <td className="relative py-2 px-3  hover:text-blue-500 text-center text-gray-800">
-        1
-      </td>
-    );
-    let len = 7 - content.length;
-    for (let i = 1; i <= len; i++) {
-      content.push(
-        <>
-          {activeDay === i + 1 &&
-          new Date().getMonth() === currentMonth &&
-          new Date().getFullYear() === currentYear ? (
-            <td className="py-2 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
-              <span className="p-2 px-4 text-white rounded-full bg-orange-500">
-                {i + 1}
-              </span>
-            </td>
-          ) : (
-            <td className="py-2 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
-              {i + 1}
-            </td>
-          )}
-        </>
-      );
-    }
-
-    return <>{content}</>;
-  }
-  //other rows
-  for (let i = 1; i <= 7; i++) {
-    if (i + (7 * row - firstDay) <= lastDayInMonth) {
-      content.push(
-        <>
-          {activeDay === i + (7 * row - firstDay) &&
-          new Date().getMonth() === currentMonth &&
-          new Date().getFullYear() === currentYear ? (
-            <td className="relative py-4 px-4  hover:text-blue-500 text-center text-gray-800">
-              <span className="p-2 text-white rounded-full bg-orange-500">
-                {i + (7 * row - firstDay)}
-              </span>
-            </td>
-          ) : (
-            <td className="relative bg-red-300 py-3 px-4 md:px-5  hover:text-orange-500 text-center text-gray-800">
-              {i + (7 * row - firstDay)}
-            </td>
-          )}
-        </>
-      );
-    }
-  }
-  return <>{content}</>;
+  return (
+    <div
+      onClick={!isActive ? onClick : undefined}
+      className={clsx(
+        "h-12 flex items-center justify-center select-none transition-colors",
+        {
+          "cursor-pointer mx-auto w-12 hover:bg-gray-200 active:bg-gray-200 rounded-full":
+            !isActive && onClick,
+          "font-bold text-white mx-auto w-12 bg-orange-500 rounded-full":
+            isActive,
+        },
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 };

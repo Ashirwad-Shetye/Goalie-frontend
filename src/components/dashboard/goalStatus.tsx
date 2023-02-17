@@ -17,7 +17,7 @@ function GoalStatus() {
       });
   }, []);
   return (
-    <div className="relative bg-white rounded-2xl shadow-xl w-11/12">
+    <div className="relative bg-white rounded-2xl h-fit shadow-xl w-11/12">
       <h1 className="text-3xl ml-5 font-poppins font-bold text-gray-500">
         <span className="font-medium text-2xl text-gray-500">Status</span>
       </h1>
@@ -25,7 +25,7 @@ function GoalStatus() {
         className="mx-auto justify-center align-middle
             container flex "
       >
-        <div className="flex w-[350px] justify-center items-center p-2">
+        <div className="flex w-[350px] justify-center items-center p-2 mb-3">
           <section className="w-28 h-28 lg:w-40 lg:h-fit pr-12 pl-4 text-center flex-col cursor-default">
             <div
               className="bg-orange-500 rounded-xl py-1 text-md font-lato 

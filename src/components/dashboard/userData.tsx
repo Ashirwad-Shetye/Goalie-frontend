@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Avatar } from "flowbite-react";
+// import { Avatar } from "flowbite-react";
 import { getUserInfo } from "../../services/serverCalls";
 import avatar_24 from "../../styles/assets/avatar/avatar_24.png";
 
@@ -17,15 +17,15 @@ function UserData() {
   }, []);
   return (
     <div
-      className="w-full h-[150px] justify-start items-center 
-      bg-white rounded-2xl shadow-lg flex space-x-6"
+      className="w-full h-fit  items-center row-span-1
+      bg-white rounded-2xl shadow-lg grid grid-cols-3 md:grid-cols-4 space-x-6"
     >
-      <div className="ml-10 h-max select-none rounded-full">
-        <Avatar img={avatar_24} size="xl" rounded={true} />
+      <div className="my-5 col-span-1 justify-self-center select-none rounded-full">
+        <img src={avatar_24} alt="avatar" className="w-28" />
       </div>
-      <div className="my-auto">
+      <div className="my-auto col-span-2 md:col-span-3">
         <h1 className="text-3xl font-lato font-semibold">
-          Hello {userData.name} 👋
+          Hola, {userData.name} 👋
         </h1>
         <h2 className="text-md font-lato font-semibold text-gray-500">
           {userData.email}

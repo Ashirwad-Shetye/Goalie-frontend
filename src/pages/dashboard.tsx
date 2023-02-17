@@ -1,29 +1,26 @@
 import React from "react";
-import Header from "../common/header";
+// import Header from "../common/header";
 // import Calender from "../components/dashboard/calender";
-import Calender2 from "../components/dashboard/calender2";
+import CalenderSection from "../components/dashboard/calender";
 import GoalStatus from "../components/dashboard/goalStatus";
 import TimelineCard from "../components/dashboard/timeline";
 import UserData from "../components/dashboard/userData";
 import CreateGoalButton from "../common/goalCreateButton";
-import Navs from "../components/dashboard/navs";
+// import Navs from "../components/dashboard/navs";
 
 function Dashboard() {
   return (
-    <div
-      className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    min-h-screen min-w-screen max-h-fit max-w-screen"
-    >
-      <main className="max-w-[1200px] min-w-screen m-auto">
-        <Header>
+    <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed">
+      <main className="max-w-[1200px] h-full min-w-screen mx-auto flex justify-center items-center">
+        {/* <Header>
           <Navs />
-        </Header>
-        <div className="container md:mt-0 w-10/12 mx-auto flex-1 justify-center align-middle my-auto lg:flex lg:space-x-10">
-          <section className="hidden mt-10 w-[400px] lg:w-5/12 lg:flex flex-col space-y-3 justify-center items-center">
+        </Header> */}
+        <div className="w-10/12 md:w-8/12 lg:w-11/12  mx-auto grid grid-cols-5 justify-center align-middle my-auto">
+          <section className="hidden lg:col-span-2 space-y-10 lg:relative lg:grid grid-rows-4 content-between w-full">
             <GoalStatus />
-            <Calender2 />
+            <CalenderSection />
           </section>
-          <section className="relative mt-10 flex flex-col space-y-4 justify-center items-center lg:w-8/12 max-w-full h-[545px] lg:rounded-2xl">
+          <section className="relative grid grid-rows-4 content-between w-full mx-auto space-y-10 col-span-5 lg:col-span-3 max-w-full">
             <UserData />
             <TimelineCard />
           </section>
