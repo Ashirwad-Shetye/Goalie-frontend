@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import CreateGoalButton from "../common/goalCreateButton";
 import Navbar from "../common/navbar";
+import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 // import Navs from "../components/dashboard/navs";
 // import Header from "../common/header";
 
@@ -17,10 +18,22 @@ function Dashboard() {
           <Navbar />
         </div>
         <main className="max-w-[1200px] w-full md:w-11/12 md:h-full min-w-screen mx-auto flex flex-col justify-center items-center">
-          <div className="hidden w-full h-16 md:flex items-end">
+          <div className="hidden w-full h-16 md:flex items-end justify-between">
             <h1 className="font-poppins text-2xl ml-10 text-gray-300 hover:text-gray-500 duration-150">
               Dashboard
             </h1>
+            <div className="shadow-lg -mb-2 mr-10 rounded-full flex w-[11rem] justify-between bg-white">
+              <div className="flex">
+                <div className="w-12 p-1">
+                  <img src={avatar_24} alt="avatar" />
+                </div>
+                <div className="px-2 flex items-center justify-center">
+                  <h1 className="w-[7rem] font-poppins truncate text-gray-500">
+                    Ashirwad shetye
+                  </h1>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="w-10/12 md:w-8/12 lg:w-11/12 mx-auto grid grid-cols-5 justify-center align-middle my-auto">
             <section className="hidden lg:col-span-2 space-y-5 lg:relative lg:grid grid-rows-4 content-between w-full">
