@@ -20,7 +20,7 @@ function UserData() {
       className="w-full h-fit items-center row-span-1 mt-5 md:mt-0
       bg-white rounded-2xl shadow-lg grid grid-cols-3 md:grid-cols-4 space-x-6"
     >
-      <div className="my-5 col-span-1 justify-self-center select-none rounded-full">
+      <div className="my-5 ml-5 col-span-1 justify-self-center select-none rounded-full">
         <img src={avatar_24} alt="avatar" className="w-28" />
       </div>
       <div className="my-auto col-span-2 md:col-span-3">
