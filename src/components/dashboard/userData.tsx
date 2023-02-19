@@ -17,7 +17,7 @@ function UserData() {
   }, []);
   return (
     <div
-      className="w-full h-fit  items-center row-span-1
+      className="w-full h-fit items-center row-span-1 mt-5 md:mt-0
       bg-white rounded-2xl shadow-lg grid grid-cols-3 md:grid-cols-4 space-x-6"
     >
       <div className="my-5 col-span-1 justify-self-center select-none rounded-full">

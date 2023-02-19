@@ -19,21 +19,25 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
     (getItemFromStorage("token") ? true : false) || false
   );
+
   const loginProps = {
     setIsLoggedIn: setIsLoggedIn,
   };
+
   const logoutProps = {
     setIsLoggedIn: setIsLoggedIn,
     isLoggedIn: isLoggedIn,
   };
+
+  const getTokenFromStorage = getItemFromStorage("token");
+
   useEffect(() => {
     setIsLoggedIn((getItemFromStorage("token") ? true : false) || false);
-    console.log((getItemFromStorage("token") ? true : false) || false);
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  }, [getItemFromStorage("token")]);
+  }, [getTokenFromStorage]);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -69,12 +73,6 @@ function App() {
                 </Protected>
               }
             />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="/login" element={<Login {...loginProps} />} />
-            <Route path="/logout" element={<Logout {...logoutProps} />} />
-
             <Route
               path="/creategoal"
               element={
@@ -83,6 +81,12 @@ function App() {
                 </Protected>
               }
             />
+            {/* <Route path="/feed" element={<Feed />} /> */}
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/login" element={<Login {...loginProps} />} />
+            <Route path="/logout" element={<Logout {...logoutProps} />} />
+
             <Route path="/error" element={<ErrorGeneral />} />
             <Route path="/error_404" element={<Error404 />} />
           </Routes>

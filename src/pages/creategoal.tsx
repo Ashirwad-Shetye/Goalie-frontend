@@ -3,7 +3,6 @@ import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navs from "../components/creategoal/navs";
 import Header from "../common/header";
-import { toast } from "react-toastify";
 import { setGoal } from "./../services/serverCalls";
 import { ThreeDots } from "react-loader-spinner";
 
@@ -95,30 +94,11 @@ function CreateGoal() {
       navigate
     );
     if (Error()) {
-      // toast('Something went wrong, try again in a few seconds', {
-      //     position: "top-center",
-      //     autoClose: 1000,
-      //     hideProgressBar: true,
-      //     closeOnClick: true,
-      //     pauseOnHover: false,
-      //     draggable: true,
-      //     progress: undefined,
-      // });
       setButtonSelected1(false);
       setButtonSelected2(false);
       setButtonSelected3(false);
 
       setIsButtonLoading(false);
-    } else {
-      // toast('Your goal was saved successfully', {
-      //     position: "top-center",
-      //     autoClose: 1000,
-      //     hideProgressBar: true,
-      //     closeOnClick: true,
-      //     pauseOnHover: false,
-      //     draggable: true,
-      //     progress: undefined,
-      // })
     }
   };
 

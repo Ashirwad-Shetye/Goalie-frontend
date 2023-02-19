@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Timeline } from "flowbite-react";
 import { getUsersAllGoals } from "../../services/serverCalls";
+import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { FaTimes } from "react-icons/fa";
 
 function TimelineCard() {
   const month = [
@@ -50,18 +52,32 @@ function TimelineCard() {
           <Timeline>
             {goals.map((goal) => {
               return (
-                <Timeline.Item>
+                <Timeline.Item className="hover:bg-orange-300 hover:bg-opacity-25 rounded-lg duration-100">
                   <Timeline.Point />
                   <Timeline.Content>
                     <Timeline.Time>
-                      <div className="text-lg font-lato text-slate-600">
-                        {new Date(goal.lastDate).getDate()}{" "}
-                        {month[new Date(goal.lastDate).getMonth()]}{" "}
-                        {new Date(goal.lastDate).getFullYear()}
+                      <div className="p-2 font-poppins text-slate-400 flex justify-between">
+                        <div>
+                          {new Date(goal.lastDate).getDate()}{" "}
+                          {month[new Date(goal.lastDate).getMonth()]}{" "}
+                          {new Date(goal.lastDate).getFullYear()}
+                        </div>
+                        <div>
+                          <button
+                            className="rounded-full w-8 h-8 text-2xl flex items-center justify-center bg-slate-200 
+                          bg-opacity-50 hover:scale-110 hover:shadow-md duration-200"
+                          >
+                            <BiDotsHorizontalRounded className="text-gray-400" />
+                          </button>
+                        </div>
                       </div>
                     </Timeline.Time>
-                    <Timeline.Title>{goal.text}</Timeline.Title>
-                    <Timeline.Body>{goal.description}</Timeline.Body>
+                    <Timeline.Title className="px-2 font-lato font-bold text-lg">
+                      {goal.text}
+                    </Timeline.Title>
+                    <Timeline.Body className="px-2 pb-2">
+                      {goal.description}
+                    </Timeline.Body>
                   </Timeline.Content>
                 </Timeline.Item>
               );

@@ -7,7 +7,7 @@ function Navs() {
   const navigate = useNavigate();
 
   return (
-    <section className="absolute right-6 md:space-x-8 lg:space-x-12 flex items-center">
+    <section className="absolute right-6 md:space-x-8 lg:space-x-12 flex items-center border">
       <div className="justify-center">
         <ul
           className="hidden right-44 md:flex items-center space-x-8 lg:space-x-12 text-xl justify-evenly 

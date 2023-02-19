@@ -7,6 +7,7 @@ import imageUpload from "../styles/assets/placeholders/imgUpload.png";
 import { ThreeDots } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import { setNewPost } from "../services/serverCalls";
+import convertFileToBase64 from "../features/fileConvert";
 
 function PostCreate() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ function PostCreate() {
 
   const { uploadedImage, description } = formData;
 
-  // const [img, setImg] = useState<File>();
+  // const [img, setImg] = useState({ myFile: "" });
 
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
@@ -32,23 +33,25 @@ function PostCreate() {
     textRef.current.style.height = `${target.scrollHeight}px`;
   };
 
+  const handleFileUpload = async (e: any) => {
+    const file = e.target.files[0];
+    const base64 = await convertFileToBase64(file);
+    console.log(base64);
+    // setFormData({ uploadedImage: image, description });
+    // console.log(formData);
+  };
+
+  // const createPost = async (newImage: any) => {
+  //   try {
+  //     await setNewPost(newImage);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-
-    setIsButtonLoading(true);
-
-    if (uploadedImage === "" || description === "") {
-      toast.error("Please enter atleast one field to upload");
-      setIsButtonLoading(false);
-    } else {
-      const postData = {
-        desc: formData.description,
-        img: formData.uploadedImage,
-      };
-      console.log(postData);
-      setNewPost(postData);
-      setIsOpen(false);
-    }
+    // createPost(formData);
   };
 
   return (
@@ -110,15 +113,8 @@ function PostCreate() {
               className="hidden"
               ref={imgRef}
               value={uploadedImage}
-              accept="image/*"
-              // onChange={(event) => {
-              //   const file = event.target.files[0];
-              //   if (file) {
-              //     setImg(file);
-              //   } else {
-              //     setImg(null);
-              //   }
-              // }}
+              accept="image.jpg, image.png, image.jpg"
+              onChange={handleFileUpload}
             />
           </div>
           <div className="w-10/12 mx-auto flex flex-col">
@@ -131,7 +127,7 @@ function PostCreate() {
               ref={textRef}
               value={description}
               onChange={onChangeHandler}
-              className="rounded-3xl scrollbar-hide focus:ring-2 resize-none focus:border-white  focus:ring-orange-500"
+              className="rounded-lg scrollbar-hide focus:ring-2 resize-none focus:border-white  focus:ring-orange-500"
             />
           </div>
           <div className="my-2 py-5 text-center">
