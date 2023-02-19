@@ -14,7 +14,7 @@ function Dashboard() {
   return (
     <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed">
       <div className="h-full md:flex">
-        <div className="relative h-16 w-full md:h-full md:w-[8rem]">
+        <div className="relative h-20 w-full md:h-full md:w-[8rem]">
           <Navbar />
         </div>
         <main className="max-w-[1200px] w-full md:w-11/12 md:h-full min-w-screen mx-auto flex flex-col justify-center items-center">
