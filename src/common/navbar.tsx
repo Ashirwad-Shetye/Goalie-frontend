@@ -10,7 +10,7 @@ import { Tooltip } from "flowbite-react";
 
 function Navbar() {
   return (
-    <div className="h-full border flex justify-between md:grid md:grid-cols-none md:grid-rows-6">
+    <div className="h-full flex justify-between md:grid md:grid-cols-none md:grid-rows-6">
       <div className="md:pt-2 md:row-span-1">
         <img src={logo} alt="goalie logo" className="w-28 md:w-auto" />
       </div>
