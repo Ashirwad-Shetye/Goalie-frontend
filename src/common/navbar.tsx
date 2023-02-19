@@ -90,10 +90,12 @@ function Navbar() {
       </div>
       <div
         onClick={handleMenu}
-        className="md:hidden cursor-pointer shadow-xl mx-3 
-      rounded-full flex flex-col my-auto w-[11rem] justify-between bg-white"
+        className="md:hidden  mx-3 rounded-full flex flex-col my-auto justify-between "
       >
-        <div className="flex justify-between items-center hover:scale-105 duration-150">
+        <div
+          className="flex justify-between cursor-pointer shadow-xl rounded-full w-[11rem] bg-white 
+        items-center hover:scale-105 duration-150"
+        >
           <div className="flex">
             <div className="w-12 p-1">
               <img src={avatar_24} alt="avatar" />
