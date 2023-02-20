@@ -1,21 +1,21 @@
 import React, { Suspense, lazy } from "react";
 import CreateGoalButton from "../common/goalCreateButton";
-import Navbar from "../common/navbar";
 import avatar_24 from "../styles/assets/avatar/avatar_24.png";
-// import Navs from "../components/dashboard/navs";
-// import Header from "../common/header";
 
 const UserData = lazy(() => import("../components/dashboard/userData"));
 const CalenderSection = lazy(() => import("../components/dashboard/calender"));
 const GoalStatus = lazy(() => import("../components/dashboard/goalStatus"));
 const TimelineCard = lazy(() => import("../components/dashboard/timeline"));
+const Navbar = lazy(() => import("../common/navbar"));
 
 function Dashboard() {
   return (
-    <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed">
+    <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed z-0">
       <div className="h-full md:flex">
-        <div className="relative h-20 w-full md:h-full md:w-[8rem]">
-          <Navbar />
+        <div className="relative h-20 w-full md:h-full md:w-[8rem] z-50">
+          <Suspense>
+            <Navbar />
+          </Suspense>
         </div>
         <main className="max-w-[1200px] w-full md:w-11/12 md:h-full min-w-screen mx-auto flex flex-col justify-center items-center">
           <div className="hidden w-full h-16 md:flex items-end justify-between">
