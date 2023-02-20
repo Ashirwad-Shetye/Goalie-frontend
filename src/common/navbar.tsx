@@ -7,9 +7,11 @@ import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
 import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 import { Tooltip } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMenu = () => {
     if (open) {
@@ -36,6 +38,7 @@ function Navbar() {
             arrow={false}
           >
             <div
+              onClick={() => navigate("/dashboard")}
               className="hover:bg-orange-400 hover:bg-opacity-60 flex justify-center items-center 
           rounded-full w-12 h-12 cursor-pointer duration-150 text-gray-600 hover:text-white"
             >
@@ -50,6 +53,7 @@ function Navbar() {
             arrow={false}
           >
             <div
+              onClick={() => navigate("/feed")}
               className="hover:bg-orange-400 hover:bg-opacity-60 flex justify-center items-center 
           rounded-full w-12 h-12 cursor-pointer duration-150 text-gray-600 hover:text-white"
             >
@@ -64,6 +68,7 @@ function Navbar() {
             arrow={false}
           >
             <div
+              onClick={() => navigate("/aboutus")}
               className="hover:bg-orange-400 hover:bg-opacity-60 flex justify-center items-center 
           rounded-full w-12 h-12 cursor-pointer duration-150 text-gray-600 hover:text-white"
             >
@@ -80,6 +85,7 @@ function Navbar() {
             arrow={false}
           >
             <div
+              onClick={() => navigate("/logout")}
               className="hover:bg-orange-400 hover:bg-opacity-60 flex justify-center items-center 
           rounded-full w-12 h-12 cursor-pointer duration-150 text-gray-400 hover:text-white"
             >
@@ -111,12 +117,32 @@ function Navbar() {
           </div>
         </div>
         {open ? (
-          <div className="absolute justify-center items-center top-[4.3rem] rounded-md w-[9rem] mx-5 bg-white shadow-lg">
-            <ul>
-              <li>Dashboard</li>
-              <li>Feed</li>
-              <li>About Us</li>
-              <li>Logout</li>
+          <div className="absolute justify-center items-center overflow-hidden top-[4.3rem] rounded-lg w-[9rem] mx-5 bg-white shadow-lg">
+            <ul className="w-full text-center text-gray-500 font-poppins">
+              <li
+                onClick={() => navigate("/dashboard")}
+                className="cursor-pointer hover:bg-slate-200 h-8 flex justify-center items-center"
+              >
+                Dashboard
+              </li>
+              <li
+                onClick={() => navigate("/feed")}
+                className="cursor-pointer hover:bg-slate-200 h-8 flex justify-center items-center"
+              >
+                Feed
+              </li>
+              <li
+                onClick={() => navigate("/aboutus")}
+                className="cursor-pointer hover:bg-slate-200 h-8 flex justify-center items-center"
+              >
+                About Us
+              </li>
+              <li
+                onClick={() => navigate("/logout")}
+                className="cursor-pointer hover:bg-slate-200 h-8 flex justify-center items-center"
+              >
+                Logout
+              </li>
             </ul>
           </div>
         ) : (
