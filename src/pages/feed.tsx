@@ -17,7 +17,7 @@ function Feed() {
         </div>
         <main className="max-w-[1200px] relative border border-red-400 w-full md:w-11/12 h-[90vh] md:h-[100vh] min-w-screen mx-auto flex flex-col justify-center items-center">
           <PostCreate />
-          <div className="w-full">
+          <div className="w-full md:space-y-10">
             <div className="hidden absolute top-0 w-full h-16 md:flex items-end justify-between">
               <h1 className="font-poppins text-2xl ml-10 text-gray-300 hover:text-gray-500 duration-150">
                 Social Feed
