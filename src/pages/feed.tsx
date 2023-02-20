@@ -1,9 +1,12 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import PostCreate from "../common/postCreateButton2";
 import Header from "../common/header";
-import PostCard from "../components/feed/postCard";
-import UsersList from "../components/feed/usersList";
+// import PostCard from "../components/feed/postCard";
+// import UsersList from "../components/feed/usersList";
 import Navs from "../components/feed/navs";
+
+const UsersList = lazy(() => import("../components/feed/usersList"));
+const PostCard = lazy(() => import("../components/feed/postCard"));
 
 function Feed() {
   return (
@@ -20,8 +23,12 @@ function Feed() {
           className="container relative top-8 md:flex justify-center items-center w-full mx-auto h-[540px]
        content-center grid md:grid-rows-1 space-y-2 md:space-y-0 md:space-x-5 lg:space-x-10"
         >
-          <UsersList />
-          <PostCard />
+          <Suspense>
+            <UsersList />
+          </Suspense>
+          <Suspense>
+            <PostCard />
+          </Suspense>
         </div>
       </main>
     </div>
