@@ -1,8 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import PostCreate from "../common/postCreateButton2";
 import Header from "../common/header";
-// import PostCard from "../components/feed/postCard";
-// import UsersList from "../components/feed/usersList";
 import Navs from "../components/feed/navs";
 
 const UsersList = lazy(() => import("../components/feed/usersList"));
@@ -10,11 +8,8 @@ const PostCard = lazy(() => import("../components/feed/postCard"));
 
 function Feed() {
   return (
-    <div
-      className="bg-dashboard bg-right bg-no-repeat bg-cover bg-fixed 
-    min-h-screen min-w-screen max-h-fit max-w-screen"
-    >
-      <main className="max-w-[1200px] min-w-screen mx-auto relative">
+    <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed z-0">
+      <main className="max-w-[1200px] w-full md:w-11/12 md:h-full min-w-screen mx-auto flex flex-col justify-center items-center">
         <Header>
           <Navs />
         </Header>

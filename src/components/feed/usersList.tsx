@@ -15,8 +15,8 @@ function UsersList() {
 function User() {
   return (
     <div
-      className="h-28 md:h-5/6 md:space-y-5 md:overflow-y-scroll md:scrollbar-thin md:scrollbar-thumb-10 
-    md:scrollbar-thumb-gray-300 md:scrollbar-track-transparent flex md:flex-col w-[360px] md:w-[260px] overflow-x-scroll 
+      className="hidden md: h-5/6 space-y-5 md:overflow-y-scroll md:scrollbar-thin md:scrollbar-thumb-10 
+    md:scrollbar-thumb-gray-300 md:scrollbar-track-transparent md:flex flex-col w-[260px] overflow-x-scroll 
     md:overscroll-x-none scrollbar-hide space-x-4 md:space-x-0 items-center md:items-start"
     >
       {Data.map((users) => {
