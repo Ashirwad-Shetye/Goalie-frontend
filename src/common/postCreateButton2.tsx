@@ -58,8 +58,8 @@ function PostCreate() {
     <div
       className={
         isOpen
-          ? "absolute z-50 flex justify-center items-center backdrop-blur-md bg-gray-400/40 h-full w-full rounded-2xl"
-          : "absolute flex justify-center items-center h-full w-full rounded-2xl"
+          ? "absolute z-50 flex justify-center items-center backdrop-blur-md bg-gray-400/40 rounded-2xl"
+          : "absolute flex justify-center items-center rounded-2xl"
       }
     >
       <div className="fixed bottom-0 md:bottom-12 right-12 z-10">

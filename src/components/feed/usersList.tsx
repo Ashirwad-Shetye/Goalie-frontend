@@ -3,8 +3,8 @@ import { Data } from "./users";
 
 function UsersList() {
   return (
-    <div className="relative w-fit h-full items-baseline md:bg-white md:rounded-2xl md:shadow-xl">
-      <h1 className="text-xl md:text-3xl font-poppins text-gray-500 pl-5 font-bold md:my-5 md:mb-8">
+    <div className="relative hidden lg:block col-span-1 w-fit h-4/6 items-baseline bg-white rounded-2xl md:shadow-xl">
+      <h1 className="text-2xl font-poppins text-gray-400 pl-5 my-5">
         Community
       </h1>
       <User />
@@ -15,8 +15,8 @@ function UsersList() {
 function User() {
   return (
     <div
-      className="hidden md: h-5/6 space-y-5 md:overflow-y-scroll md:scrollbar-thin md:scrollbar-thumb-10 
-    md:scrollbar-thumb-gray-300 md:scrollbar-track-transparent md:flex flex-col w-[260px] overflow-x-scroll 
+      className="h-5/6 space-y-5 md:overflow-y-scroll md:scrollbar-thin md:scrollbar-thumb-10 
+    md:scrollbar-thumb-gray-300 md:scrollbar-track-transparent flex flex-col w-[260px] overflow-x-scroll 
     md:overscroll-x-none scrollbar-hide space-x-4 md:space-x-0 items-center md:items-start"
     >
       {Data.map((users) => {

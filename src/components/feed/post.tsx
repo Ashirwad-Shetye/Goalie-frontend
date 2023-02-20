@@ -2,11 +2,10 @@ import React, { useRef, useState } from "react";
 import { Avatar } from "flowbite-react";
 import avatar1 from "../../styles/assets/avatar/avatar1.jpeg";
 import post1 from "../../styles/assets/placeholders/post1.jpg";
-import { AiOutlineHeart, AiFillHeart, AiOutlineSend } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { TiChevronRightOutline } from "react-icons/ti";
 import { toast } from "react-toastify";
 import Comment from "./comments";
-
-// import axios from 'axios'
 
 function Post() {
   const [alreadyLiked, setAlreadyLiked] = useState<boolean>();
@@ -78,33 +77,29 @@ function Post() {
         </h1>
         <img src={post1} alt="post" className="w-full my-5" />
       </div>
-      <div className="pb-3 flex align-middle items-start">
+      <div className="py-2 flex justify-between items-center">
         <button
           onClick={handleLike}
-          className="px-5 pt-1 text-[25px] text-red-500 hover:scale-105 duration-200"
+          className="text-4xl text-red-500 hover:scale-105 duration-200"
         >
           {alreadyLiked ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
-        <form
-          // action="submit"
-          className="align-middle items-start ml-1 flex"
-        >
-          <textarea
-            maxLength={280}
-            name="description"
-            placeholder="Comment"
-            ref={textRef}
-            onChange={onChangeHandler}
-            className="rounded-3xl w-[200px] md:w-[280px] lg:w-[360px] h-10 border-gray-300 scrollbar-hide focus:ring-2 resize-none focus:border-white
+        <textarea
+          maxLength={280}
+          name="description"
+          placeholder="Comment"
+          ref={textRef}
+          onChange={onChangeHandler}
+          className="rounded-3xl w-full mx-4 h-10 border-gray-300 scrollbar-hide focus:ring-2 resize-none focus:border-white
                           focus:ring-orange-500 focus:ring-opacity-25"
-          />
-          <button
-            onClick={onSubmit}
-            className="bg-orange-500 ml-6 rounded-full w-10 h-10 justify-center align-middle text-2xl text-white"
-          >
-            <AiOutlineSend className="mx-auto" />
-          </button>
-        </form>
+        />
+        <button
+          onClick={onSubmit}
+          className="bg-orange-400 bg-opacity-50 hover:bg-opacity-100 text-white rounded-full w-[4.3rem] h-12 flex justify-center 
+          items-center text-3xl hover:text-white duration-150"
+        >
+          <TiChevronRightOutline className="mx-auto" />
+        </button>
       </div>
       <Comment />
       <svg viewBox="0 0 100 1" xmlns="http://www.w3.org/2000/svg">

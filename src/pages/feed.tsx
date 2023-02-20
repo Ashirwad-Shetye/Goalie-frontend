@@ -1,31 +1,54 @@
 import React, { lazy, Suspense } from "react";
 import PostCreate from "../common/postCreateButton2";
-import Header from "../common/header";
-import Navs from "../components/feed/navs";
+import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 
 const UsersList = lazy(() => import("../components/feed/usersList"));
 const PostCard = lazy(() => import("../components/feed/postCard"));
+const Navbar = lazy(() => import("../common/navbar"));
 
 function Feed() {
   return (
     <div className="bg-dashboard bg-right bg-no-repeat bg-cover h-screen min-h-[640px] bg-fixed z-0">
-      <main className="max-w-[1200px] w-full md:w-11/12 md:h-full min-w-screen mx-auto flex flex-col justify-center items-center">
-        <Header>
-          <Navs />
-        </Header>
-        <PostCreate />
-        <div
-          className="container relative top-8 md:flex justify-center items-center w-full mx-auto h-[540px]
-       content-center grid md:grid-rows-1 space-y-2 md:space-y-0 md:space-x-5 lg:space-x-10"
-        >
+      <div className="h-full md:flex">
+        <div className="relative h-[10vh] min-h-16 w-full md:h-full md:w-[8rem] z-50">
           <Suspense>
-            <UsersList />
-          </Suspense>
-          <Suspense>
-            <PostCard />
+            <Navbar />
           </Suspense>
         </div>
-      </main>
+        <main className="max-w-[1200px] relative border border-red-400 w-full md:w-11/12 h-[90vh] md:h-[100vh] min-w-screen mx-auto flex flex-col justify-center items-center">
+          <PostCreate />
+          <div className="w-full space-y-10 border">
+            <div className="hidden absolute top-0 w-full h-16 md:flex items-end justify-between border">
+              <h1 className="font-poppins text-2xl ml-10 text-gray-300 hover:text-gray-500 duration-150">
+                Social Feed
+              </h1>
+              <div className="shadow-lg -mb-2 mr-10 rounded-full flex w-[11rem] justify-between bg-white">
+                <div className="flex">
+                  <div className="w-12 p-1">
+                    <img src={avatar_24} alt="avatar" />
+                  </div>
+                  <div className="px-2 flex items-center justify-center">
+                    <h1 className="w-[7rem] font-poppins truncate text-gray-500">
+                      Ashirwad shetye
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="relative flex-grow lg:grid lg:grid-cols-4 border border-green-500 justify-center items-center md:w-11/12 mx-auto
+            lg:content-center lg:space-x-10"
+            >
+              <Suspense>
+                <UsersList />
+              </Suspense>
+              <Suspense>
+                <PostCard />
+              </Suspense>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   );
 }
