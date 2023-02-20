@@ -3,7 +3,7 @@ import { Data } from "./users";
 
 function UsersList() {
   return (
-    <div className="relative hidden lg:block col-span-1 w-fit h-4/6 items-baseline bg-white rounded-2xl md:shadow-xl">
+    <div className="relative hidden place-self-center lg:block col-span-1 min-w-fit h-[80vh] items-baseline bg-white rounded-2xl md:shadow-xl">
       <h1 className="text-2xl font-poppins text-gray-400 pl-5 my-5">
         Community
       </h1>

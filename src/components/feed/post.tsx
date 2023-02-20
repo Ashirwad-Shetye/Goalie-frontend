@@ -80,7 +80,7 @@ function Post() {
       <div className="py-2 flex justify-between items-center">
         <button
           onClick={handleLike}
-          className="text-4xl text-red-500 hover:scale-105 duration-200"
+          className="text-3xl text-red-500 hover:scale-105 duration-200"
         >
           {alreadyLiked ? <AiFillHeart /> : <AiOutlineHeart />}
         </button>
@@ -95,7 +95,7 @@ function Post() {
         />
         <button
           onClick={onSubmit}
-          className="bg-orange-400 bg-opacity-50 hover:bg-opacity-100 text-white rounded-full w-[4.3rem] h-12 flex justify-center 
+          className="bg-orange-400 bg-opacity-50 hover:bg-opacity-100 text-white rounded-full w-[4rem] h-10 flex justify-center 
           items-center text-3xl hover:text-white duration-150"
         >
           <TiChevronRightOutline className="mx-auto" />
