@@ -1,7 +1,6 @@
 import React, { MutableRefObject } from "react";
 import { useState, useRef } from "react";
 import { GrFormClose } from "react-icons/gr";
-import imageUpload from "../../styles/assets/placeholders/imgUpload.png";
 import { ThreeDots } from "react-loader-spinner";
 import convertFileToBase64 from "../../features/fileConvert";
 
@@ -12,7 +11,7 @@ interface Props {
 
 function PostFormModal({ open, setIsOpen }: Props) {
   const [buttonLoading, setButtonLoading] = useState(false);
-  const [uploadImg, setUploadImg] = useState<any>({ imageUpload });
+  const [uploadImg, setUploadImg] = useState<any>("");
   const imgRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   const handleFileUpload = async (e: any) => {
@@ -23,7 +22,10 @@ function PostFormModal({ open, setIsOpen }: Props) {
     console.log(base64);
   };
 
-  function handleChange(e: { target: { files: (Blob | MediaSource)[] } }) {}
+  function handleClose() {
+    setIsOpen(false);
+    setUploadImg("");
+  }
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -40,29 +42,30 @@ function PostFormModal({ open, setIsOpen }: Props) {
                   Create Post
                 </h1>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={handleClose}
                   className="text-3xl flex justify-center mr-1 items-center hover:bg-orange-500/30 w-10 h-10 rounded-full"
                 >
                   <GrFormClose />
                 </button>
               </div>
               <div className="w-10/12 mx-auto flex flex-col">
-                <label className="text-xl text-center font-lato font-semibold my-4 text-gray-600">
-                  Upload your photo
-                </label>
-                <img
-                  width={400}
-                  height={400}
-                  src={uploadImg}
-                  alt="upload photos here"
-                  className="w-80 max-w-xl object-cover object-center mx-auto mb-5"
-                />
+                {uploadImg.length === 0 ? (
+                  <></>
+                ) : (
+                  <img
+                    width={300}
+                    height={300}
+                    src={uploadImg}
+                    alt="upload photos here"
+                    className="w-80 h-60 object-contain max-w-xl object-center mx-auto my-5"
+                  />
+                )}
                 <button
                   onClick={(event) => {
                     event.preventDefault();
                     imgRef.current.click();
                   }}
-                  className="w-fit h-10 text-lg px-3 mx-auto rounded-full bg-gray-400"
+                  className="w-fit h-10 text-lg mt-5 px-3 mx-auto rounded-full bg-gray-400"
                 >
                   Upload Image
                 </button>
