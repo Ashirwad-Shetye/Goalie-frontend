@@ -22,7 +22,10 @@ function Navbar() {
   };
   return (
     <div className="h-full flex justify-between md:grid md:grid-cols-none md:grid-rows-6">
-      <div className="md:pt-2 md:row-span-1">
+      <div
+        className="md:pt-2 md:row-span-1 cursor-pointer"
+        onClick={() => navigate("/dashboard")}
+      >
         <img src={logo} alt="goalie logo" className="w-28 md:w-auto" />
       </div>
       <div
