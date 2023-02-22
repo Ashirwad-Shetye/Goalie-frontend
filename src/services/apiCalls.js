@@ -35,14 +35,14 @@ export const getUserGoals = () => {
   return axios.get(GET_USER_GOALS);
 };
 
-export const createNewPost = () => {
-  return axios.post(SET_NEW_POST);
+export const createNewPost = (params) => {
+  return axios.post(SET_NEW_POST, params);
 };
 
 export const getAllPosts = () => {
   return axios.get(GET_ALL_POSTS);
 };
 
-export const updateLikePost = () => {
-  return axios.put(LIKE_POST);
+export const updateLikePost = (params) => {
+  return axios.put(LIKE_POST, params);
 };

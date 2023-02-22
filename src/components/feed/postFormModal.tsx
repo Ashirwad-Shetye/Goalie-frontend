@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { GrFormClose } from "react-icons/gr";
 import { ThreeDots } from "react-loader-spinner";
 import convertFileToBase64 from "../../features/fileConvert";
-
+import { toast } from "react-toastify";
 interface Props {
   open: boolean;
   setIsOpen: any;
@@ -14,12 +14,28 @@ function PostFormModal({ open, setIsOpen }: Props) {
   const [uploadImg, setUploadImg] = useState<any>("");
   const imgRef = useRef() as MutableRefObject<HTMLInputElement>;
 
+  const [formData, setFormData] = useState({
+    img: "",
+    desc: "",
+  });
+
   const handleFileUpload = async (e: any) => {
+    e.preventDefault();
     const file = e.target.files[0];
-    console.log(e.target.files);
     setUploadImg(URL.createObjectURL(file));
     const base64 = await convertFileToBase64(file);
-    console.log(base64);
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: base64,
+    }));
+  };
+
+  const handleDescChange = (e: any) => {
+    e.preventDefault();
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   function handleClose() {
@@ -29,6 +45,22 @@ function PostFormModal({ open, setIsOpen }: Props) {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setButtonLoading(true);
+    if (formData.img === "" || formData.desc === "") {
+      toast("Please fill atleast one the following input field");
+    } else {
+      console.log(formData);
+
+      import("../../services/serverCalls").then((module) => {
+        module.setNewPost({
+          img: formData.img,
+          desc: formData.desc,
+        });
+      });
+    }
+    if (Error()) {
+      setButtonLoading(false);
+    }
   };
 
   return (
@@ -36,7 +68,7 @@ function PostFormModal({ open, setIsOpen }: Props) {
       {open ? (
         <div className="fixed z-50 w-screen h-screen flex justify-center items-center border border-green-400 backdrop-blur-md">
           <div className="bg-white rounded-2xl shadow-xl min-h-fit max-h-[650px] w-10/12 min-w-fit max-w-lg">
-            <form onSubmit={onSubmit}>
+            <form>
               <div className="flex h-12 justify-between items-center border-b-2">
                 <h1 className="text-2xl ml-5 h-fit font-lato text-gray-400 font-semibold">
                   Create Post
@@ -72,6 +104,7 @@ function PostFormModal({ open, setIsOpen }: Props) {
                 <input
                   type="file"
                   ref={imgRef}
+                  name="img"
                   className="hidden"
                   accept=".jpeg, .png, .jpg"
                   onChange={handleFileUpload}
@@ -83,7 +116,8 @@ function PostFormModal({ open, setIsOpen }: Props) {
                 </label>
                 <textarea
                   maxLength={280}
-                  name="description"
+                  name="desc"
+                  onChange={handleDescChange}
                   className="rounded-lg scrollbar-hide focus:ring-2 resize-none focus:border-white  focus:ring-orange-500"
                 />
               </div>
@@ -104,7 +138,8 @@ function PostFormModal({ open, setIsOpen }: Props) {
                   </button>
                 ) : (
                   <button
-                    type="submit"
+                    onClick={onSubmit}
+                    type="button"
                     className="rounded-full mx-auto h-10 px-4 w-24 bg-orange-500 text-white text-2xl hover:bg-white hover:text-orange-500
                           hover:border-orange-500 hover:border-2 duration-200"
                   >
