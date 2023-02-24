@@ -21,7 +21,7 @@ function Signup() {
     avatarID: "",
   });
 
-  const avatarRefID = useRef();
+  const avatarRefID = useRef(2);
 
   const { name, email, password, avatarID } = formData;
 
@@ -73,12 +73,13 @@ function Signup() {
         name,
         email,
         password,
-        avatarID: avatarRefID || 1,
+        avatarID: 1,
       };
       console.log(userData);
       register(userData)
         .then((response) => {
           toast.success("User Registered Successfully");
+          console.log(response);
           setIsButtonLoading(false);
           navigate("/dashboard");
           localStorage.clear();

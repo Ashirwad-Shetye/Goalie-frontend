@@ -13,7 +13,6 @@ function Login(props: any) {
     name: "",
     email: "",
     password: "",
-    password2: "",
   });
 
   const [isButtonLoading, setIsButtonLoading] = useState(false);
@@ -35,16 +34,16 @@ function Login(props: any) {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // setIsButtonLoading(true);
+    setIsButtonLoading(true);
     if (email === "" && password === "") {
       toast.error("Please enter all credentials");
-      //   setIsButtonLoading(false);
+      setIsButtonLoading(false);
     } else if (email === "") {
       toast.error("Please enter email address");
-      //   setIsButtonLoading(false);
+      setIsButtonLoading(false);
     } else if (password === "") {
       toast.error("Please enter password");
-      //   setIsButtonLoading(false);
+      setIsButtonLoading(false);
     }
     login({ email, password }, navigate, props.setIsLoggedIn);
   };

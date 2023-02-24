@@ -9,7 +9,6 @@ function UserData() {
     getUserInfo()
       .then((response) => {
         setUserData({ name: response.data.name, email: response.data.email });
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);

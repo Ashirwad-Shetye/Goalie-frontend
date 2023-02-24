@@ -25,9 +25,6 @@ function CreateGoal() {
   const [isButtonLoading, setIsButtonLoading] = useState(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.name);
-    console.log(e.target.value);
-
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
