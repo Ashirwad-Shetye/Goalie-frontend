@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../styles/assets/logo/logo.png";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { CgFeed } from "react-icons/cg";
@@ -8,10 +8,23 @@ import { HiOutlineLogout } from "react-icons/hi";
 import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 import { Tooltip } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
+import { getUserInfo } from "../services/serverCalls";
 
 function Navbar() {
+  const [userData, setUserData] = useState({ name: null });
+
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getUserInfo()
+      .then((response) => {
+        setUserData({ name: response.data.name });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleMenu = () => {
     if (open) {
@@ -111,7 +124,7 @@ function Navbar() {
             </div>
             <div className="px-2 flex items-center justify-center">
               <h1 className="w-[5rem] font-poppins truncate text-gray-500">
-                Ashirwad shetye
+                {userData.name}
               </h1>
             </div>
           </div>
