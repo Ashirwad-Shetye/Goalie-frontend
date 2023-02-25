@@ -1,11 +1,11 @@
 import React, { lazy, Suspense, useState } from "react";
 import PostCreate from "../common/postCreateButton2";
-import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 
 const UsersList = lazy(() => import("../components/feed/usersList"));
 const PostCard = lazy(() => import("../components/feed/postCard"));
 const Navbar = lazy(() => import("../common/navbar"));
 const PostFormModal = lazy(() => import("../components/feed/postFormModal"));
+const UserTag = lazy(() => import("../common/userTag"));
 
 function Feed() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,16 +27,9 @@ function Feed() {
                 Social Feed
               </h1>
               <div className="shadow-lg -mb-2 mr-10 rounded-full flex w-[11rem] justify-between bg-white">
-                <div className="flex">
-                  <div className="w-12 p-1">
-                    <img src={avatar_24} alt="avatar" />
-                  </div>
-                  <div className="px-2 flex items-center justify-center">
-                    <h1 className="w-[7rem] font-poppins truncate text-gray-500">
-                      Ashirwad shetye
-                    </h1>
-                  </div>
-                </div>
+                <Suspense>
+                  <UserTag />
+                </Suspense>
               </div>
             </div>
             <div

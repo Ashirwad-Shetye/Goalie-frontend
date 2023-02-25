@@ -1,10 +1,11 @@
 import React from "react";
-import { useRef, useState, Suspense } from "react";
+import { useRef, useState, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import { setGoal } from "./../services/serverCalls";
 import { ThreeDots } from "react-loader-spinner";
 import Navbar from "../common/navbar";
-import avatar_24 from "../styles/assets/avatar/avatar_24.png";
+
+const UserTag = lazy(() => import("../common/userTag"));
 
 function CreateGoal() {
   const navigate = useNavigate();
@@ -110,19 +111,12 @@ function CreateGoal() {
         <main className="min-w-screen w-11/12 max-w-[1200px] mx-auto">
           <div className="hidden w-full h-16 md:flex items-end justify-between">
             <h1 className="font-poppins text-2xl ml-10 text-gray-300 hover:text-gray-500 duration-150">
-              Dashboard
+              Create Goal
             </h1>
             <div className="shadow-lg -mb-2 mr-10 rounded-full flex w-[11rem] justify-between bg-white">
-              <div className="flex">
-                <div className="w-12 p-1">
-                  <img src={avatar_24} alt="avatar" />
-                </div>
-                <div className="px-2 flex items-center justify-center">
-                  <h1 className="w-[7rem] font-poppins truncate text-gray-500">
-                    Ashirwad shetye
-                  </h1>
-                </div>
-              </div>
+              <Suspense>
+                <UserTag />
+              </Suspense>
             </div>
           </div>
           <div className="mx-auto md:w-10/12 lg:w-8/12 h-[90vh] flex items-center justify-center">

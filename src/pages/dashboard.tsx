@@ -1,12 +1,12 @@
 import React, { Suspense, lazy } from "react";
 import CreateGoalButton from "../common/goalCreateButton";
-import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 
 const UserData = lazy(() => import("../components/dashboard/userData"));
 const CalenderSection = lazy(() => import("../components/dashboard/calender"));
 const GoalStatus = lazy(() => import("../components/dashboard/goalStatus"));
 const TimelineCard = lazy(() => import("../components/dashboard/timeline"));
 const Navbar = lazy(() => import("../common/navbar"));
+const UserTag = lazy(() => import("../common/userTag"));
 
 function Dashboard() {
   return (
@@ -23,16 +23,9 @@ function Dashboard() {
               Dashboard
             </h1>
             <div className="shadow-lg -mb-2 mr-10 rounded-full flex w-[11rem] justify-between bg-white">
-              <div className="flex">
-                <div className="w-12 p-1">
-                  <img src={avatar_24} alt="avatar" />
-                </div>
-                <div className="px-2 flex items-center justify-center">
-                  <h1 className="w-[7rem] font-poppins truncate text-gray-500">
-                    Ashirwad shetye
-                  </h1>
-                </div>
-              </div>
+              <Suspense>
+                <UserTag />
+              </Suspense>
             </div>
           </div>
           <div className="w-10/12 md:w-8/12 lg:w-11/12 mx-auto grid grid-cols-5 justify-center align-middle my-auto">
