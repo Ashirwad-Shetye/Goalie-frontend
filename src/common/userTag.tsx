@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 import { getUserInfo } from "../services/serverCalls";
 
 function UserTag() {
-  const [userData, setUserData] = useState({ name: null });
+  const [userData, setUserData] = useState({ name: null, avatar: "" });
 
   useEffect(() => {
     getUserInfo()
       .then((response) => {
-        setUserData({ name: response.data.name });
+        console.log(response);
+        setUserData({ name: response.data.name, avatar: response.data.avatar });
       })
       .catch((error) => {
         console.log(error);
@@ -17,8 +17,8 @@ function UserTag() {
   return (
     <>
       <div className="flex">
-        <div className="w-12 p-1">
-          <img src={avatar_24} alt="avatar" />
+        <div className="w-12 p-1 overflow-hidden rounded-full">
+          <img src={`${userData.avatar}`} alt="avatar" />
         </div>
         <div className="px-2 flex items-center justify-center">
           <h1 className="w-[7rem] font-poppins truncate text-gray-500">

@@ -5,13 +5,12 @@ import { CgFeed } from "react-icons/cg";
 import { AiOutlineTeam } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { HiOutlineLogout } from "react-icons/hi";
-import avatar_24 from "../styles/assets/avatar/avatar_24.png";
 import { Tooltip } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { getUserInfo } from "../services/serverCalls";
 
 function Navbar() {
-  const [userData, setUserData] = useState({ name: null });
+  const [userData, setUserData] = useState({ name: null, avatar: "" });
 
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
@@ -19,7 +18,7 @@ function Navbar() {
   useEffect(() => {
     getUserInfo()
       .then((response) => {
-        setUserData({ name: response.data.name });
+        setUserData({ name: response.data.name, avatar: response.data.avatar });
       })
       .catch((error) => {
         console.log(error);
@@ -119,8 +118,8 @@ function Navbar() {
         items-center hover:scale-105 duration-150"
         >
           <div className="flex">
-            <div className="w-12 p-1">
-              <img src={avatar_24} alt="avatar" />
+            <div className="w-12 p-1 rounded-full overflow-hidden">
+              <img src={`${userData.avatar}`} alt="avatar" />
             </div>
             <div className="px-2 flex items-center justify-center">
               <h1 className="w-[5rem] font-poppins truncate text-gray-500">
