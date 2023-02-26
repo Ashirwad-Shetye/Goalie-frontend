@@ -28,7 +28,6 @@ export const login = (params, navigate, setIsLoggedIn) => {
 };
 
 export const register = (params) => {
-  console.log(params);
   return userRegister(params);
 };
 

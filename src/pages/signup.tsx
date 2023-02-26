@@ -54,7 +54,6 @@ function Signup() {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log("logged");
 
     setIsButtonLoading(true);
 
@@ -71,11 +70,9 @@ function Signup() {
         password,
         avatar: avatarImg,
       };
-      console.log(userData);
       register(userData)
         .then((response) => {
           toast.success("User Registered Successfully");
-          console.log(response);
           setIsButtonLoading(false);
           navigate("/dashboard");
           localStorage.clear();

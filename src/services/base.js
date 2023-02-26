@@ -19,7 +19,6 @@ export const setAuthHeaders = (config) => {
 };
 
 export const setAuthHeadersAfterLogin = (headers, accessToken = null) => {
-  console.log(headers);
   axios.defaults.headers["authorization"] = `Bearer ${accessToken}`;
   //   authHeaderKeys.forEach((key) => {
   //     if (key.toLowerCase() === "authorization".toLowerCase() && accessToken) {
@@ -45,8 +44,6 @@ export const basicInstance = axios.create();
 const handleErrors = (store = null, error) => {
   console.log(error);
   if (process.env.NODE_ENV === "development") {
-
-    
     // console.log("Error Logging :: ", error.message, JSON.stringify(error))
   }
   if (error.message) {

@@ -17,7 +17,11 @@ function UserTag() {
     <>
       <div className="flex">
         <div className="w-12 p-1 overflow-hidden rounded-full">
-          <img src={`${userData.avatar}`} alt="avatar" />
+          <img
+            src={`${userData.avatar}`}
+            alt="avatar"
+            className="rounded-full"
+          />
         </div>
         <div className="px-2 flex items-center justify-center">
           <h1 className="w-[7rem] font-poppins truncate text-gray-500">
