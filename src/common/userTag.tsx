@@ -7,7 +7,6 @@ function UserTag() {
   useEffect(() => {
     getUserInfo()
       .then((response) => {
-        console.log(response);
         setUserData({ name: response.data.name, avatar: response.data.avatar });
       })
       .catch((error) => {
