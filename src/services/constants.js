@@ -1,5 +1,5 @@
-// export const DEFAULT_URL = "https://easy-pear-buffalo-tutu.cyclic.app/";
-export const DEFAULT_URL = "http://localhost:5000/";
+export const DEFAULT_URL = "https://easy-pear-buffalo-tutu.cyclic.app";
+// export const DEFAULT_URL = "http://localhost:5000/";
 
 export const authHeaderKeys = ["platform", "Authorization"];
 
