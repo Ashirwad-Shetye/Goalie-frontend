@@ -11,8 +11,8 @@ import { ThreeDots } from "react-loader-spinner";
 function Login(props: any) {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    password: "",
+    email: "pestoproject@gmail.com",
+    password: "123456",
   });
 
   const [isButtonLoading, setIsButtonLoading] = useState(false);
