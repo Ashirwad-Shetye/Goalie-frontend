@@ -4,7 +4,7 @@
 
 Goalie is a minimal goal management platform which enables users to create and manage goals. It includes community portal to share current and completed goals with other users.
 <br/>
-Main motive behind Goalie is to create a social accountability to help user complete goals without any procastinations.
+Main motive behind Goalie is to create a social accountability to help user complete goals without any procrastinations.
 
 <br/>
 
