@@ -2,9 +2,9 @@
 
 ![image](https://user-images.githubusercontent.com/99337222/217624228-14f258c8-8268-4623-8a4e-2e6fff3cd54e.png)
 
-Goalie is a minimal goal management platform which enables users to create and manage goals. It includes community portal to share current and completed goals with other users.
+Goalie is a minimal goal management platform that enables users to create and manage goals. It includes a community portal to share current and completed goals with other users.
 <br/>
-Main motive behind Goalie is to create a social accountability to help user complete goals without any procrastinations.
+The main motive behind Goalie is to create social accountability to help users complete goals without any procrastination.
 
 <br/>
 
@@ -20,21 +20,23 @@ Main motive behind Goalie is to create a social accountability to help user comp
 
 # Demo
 
-[Live demo](https://goalie.ashirwadshetye.com/)
+[Live demo](https://goalietask.netlify.app/)
 
+<br/>
+Backend Repository: [here](https://github.com/Ashirwad-Shetye/Goalie-backend)
 <br/>
 
 # Installation
 
 - Fork or directly clone this repository to your local machine
-- Use `npm install` command to install dependencies
-- Once the dependencies are installed, use `npm start` command inside the root directory to open the app in your local browser of choice
+- Use the `npm install` command to install dependencies
+- Once the dependencies are installed, use the `npm start` command inside the root directory to open the app in your local browser of choice
 
 <br/>
 
 # Technology Stack
 
-We have used MERN stack along with few modern and new technologies for better efficiency and making the web app fairly future-proof for upcoming years. This has helped us build an easily scalable web application.
+We have used the MERN stack along with a few modern and new technologies for better efficiency and to make the web app fairly future-proof for upcoming years. This has helped us build an easily scalable web application.
 
 - [React Js](https://reactjs.org/)
 - [ReactRouter](https://reactrouter.com/en/main)
